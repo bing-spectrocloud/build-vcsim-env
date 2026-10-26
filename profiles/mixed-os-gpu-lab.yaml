@@ -1,12 +1,12 @@
 # vcsim model profile: mixed Ubuntu / RHEL / Windows estate split across a CPU
-# cluster and a GPU cluster, with every CBT mode and boot configuration we care
-# about represented at least once. Build it with:
+# cluster and a GPU cluster, with every CBT mode, boot configuration and VMware
+# Tools state we care about represented at least once. Build it with:
 #
 #   python build_profile.py profiles/mixed-os-gpu-lab.yaml
 #
 # Sections:
 #   inventory      datacenter, clusters, hosts, datastores, networks, folders, pools
-#   presets        reusable os / boot / cbt / gpu settings referenced by VMs
+#   presets        reusable os / boot / cbt / gpu / tools settings referenced by VMs
 #   vms            the VMs themselves (count > 1 expands {n} in the name)
 #
 # CBT modes (presets.cbt):
@@ -15,6 +15,15 @@
 #   partial    CBT on, but disks with `ctk: false` get scsiX:Y.ctkEnabled=FALSE
 #   stale      changeTrackingEnabled=false while ctkEnabled=TRUE lingers in
 #              extraConfig (what you see after a botched backup-agent cleanup)
+#
+# VMware Tools (presets.tools) set guest.toolsStatus / toolsRunningStatus /
+# toolsVersionStatus2 / toolsVersion. A VM that isn't powered on (off,
+# suspended, template) always reports tools as not running, whatever the preset.
+# VMs with tools running also report guest.ipAddress (10.<vlan>.0.x on their
+# first NIC's portgroup) and guest.hostName.
+#
+# Disks go on the VM's `datastore` unless the disk sets its own `datastore`,
+# which is how a VM spans two datastores.
 #
 # Disk modes: persistent | independent_persistent | independent_nonpersistent.
 # Independent disks are skipped by snapshots, so they double as a CBT edge case.
@@ -56,6 +65,7 @@ inventory:
     - { name: ds-cpu-ssd, path: ds-cpu-ssd, clusters: [cpu-cluster] }
     - { name: ds-cpu-capacity, path: ds-cpu-capacity, clusters: [cpu-cluster] }
     - { name: ds-gpu-nvme, path: ds-gpu-nvme, clusters: [gpu-cluster] }
+    - { name: ds-gpu-scratch, path: ds-gpu-scratch, clusters: [gpu-cluster] }
     - { name: ds-templates, path: ds-templates, clusters: [cpu-cluster, gpu-cluster] }
 
   networks:
@@ -117,14 +127,58 @@ presets:
     l40s-vgpu-8q:   { type: vgpu, profile: nvidia_l40s-8q }
     l40s-passthru:  { type: passthrough, vendor_id: 0x10de, device_id: 0x26b9, label: L40S }
 
+  # VMware Tools. version_status -> guest.toolsVersionStatus2, status ->
+  # guest.toolsStatus while running, running_status -> guest.toolsRunningStatus
+  # while running, version -> guest.toolsVersion (encoded), upgrade_policy ->
+  # config.tools.toolsUpgradePolicy (manual | upgradeAtPowerCycle).
+  tools:
+    not-installed:     { version_status: guestToolsNotInstalled }
+    current:           { version: 12.4.0, version_status: guestToolsCurrent, status: toolsOk }
+    current-stopped:   { version: 12.4.0, version_status: guestToolsCurrent, running: false }  # service down in a running guest
+    executing-scripts: { version: 12.4.0, version_status: guestToolsCurrent, status: toolsOk, running_status: guestToolsExecutingScripts }
+    open-vm-tools:     { version: 12.3.5, version_status: guestToolsUnmanaged, status: toolsOk }
+    supported-old:     { version: 11.3.5, version_status: guestToolsSupportedOld, status: toolsOld, upgrade_policy: upgradeAtPowerCycle }
+    needs-upgrade:     { version: 10.3.10, version_status: guestToolsNeedUpgrade, status: toolsOld }
+    too-old:           { version: 9.10.5, version_status: guestToolsTooOld, status: toolsOld }
+    too-new:           { version: 13.0.1, version_status: guestToolsTooNew, status: toolsOk }
+
 # Defaults applied to every VM unless overridden.
 defaults:
   cpu: 2
   cores_per_socket: 1
   memory_mb: 4096
   power: "on"
+  tools: current
   disks: [{ size_gb: 40 }]
   nics: [pg-app]
+
+# Quick reference — tools / snapshots / datastores / NICs per VM:
+#
+#   ubu2004-legacy-01..02   too-old (off)          0  1  1
+#   ubu2204-web-01..02      open-vm-tools          1  1  2
+#   ubu2204-web-03          current-stopped        2  1  2
+#   ubu2404-db-01           open-vm-tools          2  2  2
+#   ubu2404-pxe-01          not-installed (off)    0  1  1
+#   rhel7-legacy-01         needs-upgrade          1  2  1
+#   rhel8-app-01            open-vm-tools          0  1  1
+#   rhel8-app-02            current-stopped        0  1  2
+#   rhel9-db-01             open-vm-tools          4  2  2
+#   rhel9-kickstart-01      not-installed (off)    0  1  1
+#   rhel9-suspended-01      current (suspended)    1  1  1
+#   win2016-dc-01           needs-upgrade          0  1  1
+#   win2019-sql-01          current                1  2  2
+#   win2022-file-01         supported-old          3  2  1
+#   win2025-app-01          too-new                0  1  2
+#   win11-vdi-01..02        current                0  1  1
+#   win11-vdi-03            executing-scripts      1  1  1
+#   win10-legacy-01         too-old (off)          0  1  1
+#   ubu2204-train-01..02    open-vm-tools          0  2  2
+#   ubu2204-train-pt-01     open-vm-tools          1  2  2
+#   ubu2404-infer-01..02    open-vm-tools          1  1  1
+#   rhel9-infer-01          current-stopped        0  2  1
+#   rhel8-hpc-01            needs-upgrade (off)    0  1  2
+#   win2022-gpu-vdi-01      executing-scripts      2  1  1
+#   tpl-*                   current / not-inst.    0  1  1
 
 vms:
   # ---------------------------------------------------------------- Ubuntu / CPU
@@ -133,6 +187,7 @@ vms:
     os: ubuntu-20.04
     boot: bios
     cbt: "off"
+    tools: too-old
     cluster: cpu-cluster
     pool: rp-dev
     folder: linux
@@ -141,10 +196,11 @@ vms:
     role: legacy-app
 
   - name: ubu2204-web-{n:02d}
-    count: 3
+    count: 2
     os: ubuntu-22.04
     boot: efi
     cbt: "on"
+    tools: open-vm-tools
     cluster: cpu-cluster
     pool: rp-prod
     folder: linux
@@ -153,10 +209,24 @@ vms:
     role: web
     snapshots: [pre-patch]
 
+  - name: ubu2204-web-03
+    os: ubuntu-22.04
+    boot: efi
+    cbt: "on"
+    tools: current-stopped       # VM up, vmtoolsd crashed
+    cluster: cpu-cluster
+    pool: rp-prod
+    folder: linux
+    datastore: ds-cpu-ssd
+    nics: [pg-app, pg-mgmt]
+    role: web
+    snapshots: [pre-patch, post-patch]
+
   - name: ubu2404-db-01
     os: ubuntu-24.04
     boot: efi-secure
     cbt: partial
+    tools: open-vm-tools
     cluster: cpu-cluster
     pool: rp-prod
     folder: linux
@@ -168,7 +238,7 @@ vms:
     disks:
       - { size_gb: 60 }
       - { size_gb: 500, provisioning: eager_zeroed }
-      - { size_gb: 200, mode: independent_persistent, ctk: false }   # scratch/tmp
+      - { size_gb: 200, mode: independent_persistent, ctk: false, datastore: ds-cpu-capacity }   # scratch/tmp
     role: database
     snapshots: [baseline, post-schema-migration]
 
@@ -176,6 +246,7 @@ vms:
     os: ubuntu-24.04
     boot: efi-pxe
     cbt: "off"
+    tools: not-installed
     cluster: cpu-cluster
     pool: rp-dev
     folder: linux
@@ -189,18 +260,20 @@ vms:
     os: rhel-7
     boot: bios
     cbt: stale
+    tools: needs-upgrade
     cluster: cpu-cluster
     pool: rp-prod
     folder: linux
-    datastore: ds-cpu-capacity
-    disks: [{ size_gb: 40 }, { size_gb: 100, provisioning: thick }]
+    datastore: ds-cpu-ssd
+    disks: [{ size_gb: 40 }, { size_gb: 100, provisioning: thick, datastore: ds-cpu-capacity }]
     role: legacy-app
+    snapshots: [pre-tools-upgrade]
 
-  - name: rhel8-app-{n:02d}
-    count: 2
+  - name: rhel8-app-01
     os: rhel-8
     boot: efi
     cbt: "on"
+    tools: open-vm-tools
     cluster: cpu-cluster
     pool: rp-prod
     folder: linux
@@ -209,10 +282,25 @@ vms:
     memory_mb: 8192
     role: app
 
+  - name: rhel8-app-02
+    os: rhel-8
+    boot: efi
+    cbt: "on"
+    tools: current-stopped
+    cluster: cpu-cluster
+    pool: rp-prod
+    folder: linux
+    datastore: ds-cpu-ssd
+    cpu: 4
+    memory_mb: 8192
+    nics: [pg-app, pg-mgmt]
+    role: app
+
   - name: rhel9-db-01
     os: rhel-9
     boot: efi-secure
     cbt: "on"
+    tools: open-vm-tools
     cluster: cpu-cluster
     pool: rp-prod
     folder: linux
@@ -224,14 +312,15 @@ vms:
     disks:
       - { size_gb: 80 }
       - { size_gb: 1024, provisioning: eager_zeroed }
-      - { size_gb: 256, provisioning: eager_zeroed }
+      - { size_gb: 256, provisioning: eager_zeroed, datastore: ds-cpu-capacity }   # archive logs
     role: database
-    snapshots: [nightly]
+    snapshots: [nightly-1, nightly-2, nightly-3, nightly-4]   # long chain
 
   - name: rhel9-kickstart-01
     os: rhel-9
     boot: bios-cdrom-setup
     cbt: "off"
+    tools: not-installed
     cluster: cpu-cluster
     pool: rp-dev
     folder: linux
@@ -243,18 +332,21 @@ vms:
     os: rhel-9
     boot: efi-disk-only
     cbt: "on"
+    tools: current
     cluster: cpu-cluster
     pool: rp-dev
     folder: linux
     datastore: ds-cpu-capacity
     power: suspended
     role: app
+    snapshots: [before-suspend]
 
   # --------------------------------------------------------------- Windows / CPU
   - name: win2016-dc-01
     os: win-2016
     boot: bios
     cbt: "on"
+    tools: needs-upgrade
     cluster: cpu-cluster
     pool: rp-prod
     folder: windows
@@ -267,6 +359,7 @@ vms:
     os: win-2019
     boot: efi
     cbt: partial
+    tools: current
     cluster: cpu-cluster
     pool: rp-prod
     folder: windows
@@ -274,12 +367,12 @@ vms:
     cpu: 8
     cores_per_socket: 4
     memory_mb: 32768
-    nics: [pg-db]
+    nics: [pg-db, pg-mgmt]
     disks:
       - { size_gb: 100 }
-      - { size_gb: 500, provisioning: eager_zeroed }               # data
-      - { size_gb: 100, provisioning: eager_zeroed }               # logs
-      - { size_gb: 64, mode: independent_nonpersistent, ctk: false } # tempdb
+      - { size_gb: 500, provisioning: eager_zeroed }                                # data
+      - { size_gb: 100, provisioning: eager_zeroed, datastore: ds-cpu-capacity }    # logs
+      - { size_gb: 64, mode: independent_nonpersistent, ctk: false }                # tempdb
     role: database
     snapshots: [pre-cu-update]
 
@@ -287,32 +380,36 @@ vms:
     os: win-2022
     boot: efi-secure
     cbt: "on"
+    tools: supported-old
     cluster: cpu-cluster
     pool: rp-prod
     folder: windows
-    datastore: ds-cpu-capacity
+    datastore: ds-cpu-ssd
     memory_mb: 16384
-    disks: [{ size_gb: 100 }, { size_gb: 2048 }]
+    disks: [{ size_gb: 100 }, { size_gb: 2048, datastore: ds-cpu-capacity }]
     role: file-server
-    snapshots: [weekly-1, weekly-2, weekly-3]   # deep snapshot chain
+    snapshots: [weekly-1, weekly-2, weekly-3]
 
   - name: win2025-app-01
     os: win-2025
     boot: efi-secure-vtpm
     cbt: "off"
+    tools: too-new
     cluster: cpu-cluster
     pool: rp-dev
     folder: windows
     datastore: ds-cpu-ssd
     cpu: 4
     memory_mb: 16384
+    nics: [pg-app, pg-mgmt]
     role: app
 
   - name: win11-vdi-{n:02d}
-    count: 3
+    count: 2
     os: win-11
     boot: efi-secure-vtpm
     cbt: "off"
+    tools: current
     cluster: cpu-cluster
     pool: rp-dev
     folder: windows
@@ -322,10 +419,26 @@ vms:
     disks: [{ size_gb: 80 }]
     role: vdi
 
+  - name: win11-vdi-03
+    os: win-11
+    boot: efi-secure-vtpm
+    cbt: "off"
+    tools: executing-scripts     # mid-login script / customization
+    cluster: cpu-cluster
+    pool: rp-dev
+    folder: windows
+    datastore: ds-cpu-ssd
+    cpu: 2
+    memory_mb: 8192
+    disks: [{ size_gb: 80 }]
+    role: vdi
+    snapshots: [golden]
+
   - name: win10-legacy-01
     os: win-10
     boot: bios
     cbt: stale
+    tools: too-old
     cluster: cpu-cluster
     pool: rp-dev
     folder: windows
@@ -338,7 +451,8 @@ vms:
     count: 2
     os: ubuntu-22.04
     boot: efi
-    cbt: "off"                  # vGPU VMs are often excluded from CBT backups
+    cbt: "off"                # vGPU VMs are often excluded from CBT backups
+    tools: open-vm-tools
     gpu: [a100-vgpu-40c, a100-vgpu-40c]
     cluster: gpu-cluster
     host: esx-gpu-01.lab.local
@@ -349,13 +463,14 @@ vms:
     cores_per_socket: 16
     memory_mb: 262144
     nics: [pg-app, pg-gpu-rdma]
-    disks: [{ size_gb: 200 }, { size_gb: 2048 }]
+    disks: [{ size_gb: 200 }, { size_gb: 2048, datastore: ds-gpu-scratch }]
     role: training
 
   - name: ubu2204-train-pt-01
     os: ubuntu-22.04
     boot: efi
     cbt: "on"
+    tools: open-vm-tools
     gpu: [a100-passthru, a100-passthru, a100-passthru, a100-passthru]
     cluster: gpu-cluster
     host: esx-gpu-02.lab.local
@@ -366,14 +481,16 @@ vms:
     cores_per_socket: 32
     memory_mb: 524288
     nics: [pg-app, pg-gpu-rdma]
-    disks: [{ size_gb: 200 }, { size_gb: 4096 }]
+    disks: [{ size_gb: 200 }, { size_gb: 4096, datastore: ds-gpu-scratch }]
     role: training
+    snapshots: [pre-driver-upgrade]
 
   - name: ubu2404-infer-{n:02d}
     count: 2
     os: ubuntu-24.04
     boot: efi-secure
     cbt: "on"
+    tools: open-vm-tools
     gpu: [l40s-vgpu-24q]
     cluster: gpu-cluster
     host: esx-gpu-03.lab.local
@@ -390,6 +507,7 @@ vms:
     os: rhel-9
     boot: efi-secure
     cbt: partial
+    tools: current-stopped
     gpu: [a100-vgpu-10c]
     cluster: gpu-cluster
     host: esx-gpu-01.lab.local
@@ -398,13 +516,16 @@ vms:
     datastore: ds-gpu-nvme
     cpu: 8
     memory_mb: 65536
-    disks: [{ size_gb: 100 }, { size_gb: 500, mode: independent_persistent, ctk: false }]
+    disks:
+      - { size_gb: 100 }
+      - { size_gb: 500, mode: independent_persistent, ctk: false, datastore: ds-gpu-scratch }
     role: inference
 
   - name: rhel8-hpc-01
     os: rhel-8
     boot: efi
     cbt: stale
+    tools: needs-upgrade
     gpu: [l40s-passthru]
     cluster: gpu-cluster
     host: esx-gpu-03.lab.local
@@ -421,6 +542,7 @@ vms:
     os: win-2022
     boot: efi-secure-vtpm
     cbt: "off"
+    tools: executing-scripts
     gpu: [l40s-vgpu-8q]
     cluster: gpu-cluster
     host: esx-gpu-03.lab.local
@@ -430,12 +552,14 @@ vms:
     cpu: 8
     memory_mb: 32768
     role: graphics-vdi
+    snapshots: [golden, post-driver]
 
   # ------------------------------------------------------------------ Templates
   - name: tpl-ubuntu-2404
     os: ubuntu-24.04
     boot: efi-secure
     cbt: "off"
+    tools: open-vm-tools
     cluster: cpu-cluster
     folder: templates
     datastore: ds-templates
@@ -445,6 +569,7 @@ vms:
     os: rhel-9
     boot: efi-secure
     cbt: "off"
+    tools: open-vm-tools
     cluster: cpu-cluster
     folder: templates
     datastore: ds-templates
@@ -454,6 +579,7 @@ vms:
     os: win-2022
     boot: efi-secure-vtpm
     cbt: "off"
+    tools: current
     cluster: cpu-cluster
     folder: templates
     datastore: ds-templates
@@ -464,6 +590,7 @@ vms:
     os: ubuntu-22.04
     boot: efi
     cbt: "off"
+    tools: not-installed      # bare image, tools come with the driver bundle
     gpu: [a100-vgpu-10c]
     cluster: gpu-cluster
     folder: templates

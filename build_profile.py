@@ -57,9 +57,36 @@ def flag(value) -> str:
     return str(value)
 
 
+def tools_version(version: str | None) -> str:
+    """'12.3.5' -> '12389', the encoding vSphere uses for guest.toolsVersion."""
+    if not version:
+        return "0"
+    major, minor, patch = (int(x) for x in str(version).split("."))
+    return str(major * 1024 + minor * 32 + patch)
+
+
+def tools_state(vm: dict) -> dict[str, str]:
+    """guest.tools* properties for a VM. vcsim never changes them on power operations,
+    so a powered-off, suspended or template VM is reported as tools-not-running here."""
+    t = vm["_tools"]
+    if t["version_status"] == "guestToolsNotInstalled":
+        return {"toolsStatus": "toolsNotInstalled", "toolsRunningStatus": "guestToolsNotRunning",
+                "toolsVersionStatus2": "guestToolsNotInstalled", "toolsVersion": "0"}
+    running = t.get("running", True) and vm["power"] == "on" and not vm.get("template")
+    return {
+        "toolsStatus": t.get("status", "toolsOk") if running else "toolsNotRunning",
+        "toolsRunningStatus": t.get("running_status", "guestToolsRunning") if running else "guestToolsNotRunning",
+        "toolsVersionStatus2": t["version_status"],
+        "toolsVersion": tools_version(t.get("version")),
+    }
+
+
 def expand_vms(profile: dict) -> list[dict]:
     """Merge defaults, resolve presets and expand `count` into concrete VMs."""
-    defaults, presets = profile.get("defaults", {}), profile["presets"]
+    defaults, presets, inv = profile.get("defaults", {}), profile["presets"], profile["inventory"]
+    ds_clusters = {d["name"]: set(d["clusters"]) for d in inv["datastores"]}
+    vlans = {pg["name"]: pg["vlan"] for pg in inv["networks"]["portgroups"]}
+    ips: Counter = Counter()
     out = []
     for entry in profile["vms"]:
         for n in range(1, entry.get("count", 1) + 1):
@@ -69,6 +96,7 @@ def expand_vms(profile: dict) -> list[dict]:
                 vm["_boot"] = presets["boot"][vm.get("boot", "bios")]
                 vm["_cbt"] = flag(presets["cbt"][flag(vm.get("cbt", "off"))]["mode"])
                 vm["_gpu"] = [presets["gpu"][g] for g in vm.get("gpu") or []]
+                vm["_tools"] = presets["tools"][vm.get("tools", "not-installed")]
             except KeyError as e:
                 sys.exit(f"{vm['name']}: unknown preset {e}")
             vm["power"] = flag(vm.get("power", "on"))
@@ -79,6 +107,18 @@ def expand_vms(profile: dict) -> list[dict]:
             for d in vm["disks"]:
                 if d.get("mode", "persistent") not in DISK_MODES:
                     sys.exit(f"{vm['name']}: disk mode must be one of {sorted(DISK_MODES)}")
+            vm["_datastores"] = list(dict.fromkeys([vm["datastore"], *(d.get("datastore", vm["datastore"]) for d in vm["disks"])]))
+            for ds in vm["_datastores"]:
+                if vm["cluster"] not in ds_clusters.get(ds, ()):
+                    sys.exit(f"{vm['name']}: datastore {ds} isn't defined or isn't mounted on {vm['cluster']}")
+            for pg in vm["nics"]:
+                if pg not in vlans:
+                    sys.exit(f"{vm['name']}: unknown portgroup {pg}")
+            # Running tools report the guest's primary IP: 10.<vlan>.0.<n> on the first NIC's portgroup
+            if tools_state(vm)["toolsRunningStatus"] != "guestToolsNotRunning":
+                pg = vm["nics"][0]
+                ips[pg] += 1
+                vm["_ip"] = f"10.{vlans[pg]}.0.{10 + ips[pg]}"
             out.append(vm)
     names = Counter(vm["name"] for vm in out)
     if dupes := [n for n, c in names.items() if c > 1]:
@@ -125,7 +165,7 @@ def config_spec(vm: dict, nic_backing) -> vim.vm.ConfigSpec:
             unitNumber=unit,
             capacityInKB=d["size_gb"] * GB_KB,
             backing=vim.vm.device.VirtualDisk.FlatVer2BackingInfo(
-                fileName=f"[{ds}]",
+                fileName=f"[{d.get('datastore', ds)}]",
                 diskMode=d.get("mode", "persistent"),
                 thinProvisioned=prov == "thin",
                 eagerlyScrub=prov == "eager_zeroed",
@@ -151,6 +191,12 @@ def config_spec(vm: dict, nic_backing) -> vim.vm.ConfigSpec:
     if vm["_gpu"]:
         extra["pciPassthru.use64bitMMIO"] = "TRUE"
         extra["pciPassthru.64bitMMIOSizeGB"] = str(128 if len(vm["_gpu"]) == 1 else 256 if len(vm["_gpu"]) == 2 else 512)
+    # vcsim applies SET.<property> keys straight to the VM's properties instead of storing them
+    for key, value in tools_state(vm).items():
+        extra[f"SET.guest.{key}"] = value
+    if vm.get("_ip"):
+        extra["SET.guest.ipAddress"] = vm["_ip"]
+        extra["SET.guest.hostName"] = vm["name"]
 
     return vim.vm.ConfigSpec(
         name=vm["name"],
@@ -164,8 +210,10 @@ def config_spec(vm: dict, nic_backing) -> vim.vm.ConfigSpec:
         firmware=boot.get("firmware", "bios"),
         bootOptions=boot_options(boot),
         changeTrackingEnabled=cbt in ("on", "partial"),
+        tools=vim.vm.ToolsConfigInfo(toolsUpgradePolicy=vm["_tools"].get("upgrade_policy", "manual")),
         extraConfig=[vim.option.OptionValue(key=k, value=v) for k, v in extra.items()],
-        annotation=f"profile={vm.get('_profile', '')} os={vm['os']} boot={vm.get('boot', 'bios')} cbt={cbt}",
+        annotation=f"profile={vm.get('_profile', '')} os={vm['os']} boot={vm.get('boot', 'bios')} cbt={cbt} "
+                   f"tools={vm.get('tools', 'not-installed')}",
         deviceChange=changes,
     )
 
@@ -459,7 +507,12 @@ def summarize(vms: list[dict]) -> None:
     print(f"\n{len(vms)} VMs")
     for label, key in (("os", lambda v: v["os"]), ("boot", lambda v: v.get("boot", "bios")),
                        ("cbt", lambda v: v["_cbt"]), ("power", lambda v: "template" if v.get("template") else v["power"]),
-                       ("gpu", lambda v: ("vgpu" if v["_gpu"][0]["type"] == "vgpu" else "passthrough") if v["_gpu"] else "none")):
+                       ("gpu", lambda v: ("vgpu" if v["_gpu"][0]["type"] == "vgpu" else "passthrough") if v["_gpu"] else "none"),
+                       ("tools", lambda v: v.get("tools", "not-installed")),
+                       ("tools*", lambda v: tools_state(v)["toolsRunningStatus"].removeprefix("guestTools")),
+                       ("snaps", lambda v: len(v.get("snapshots") or [])),
+                       ("ds", lambda v: len(v["_datastores"])),
+                       ("nics", lambda v: len(v["nics"]))):
         counts = Counter(key(v) for v in vms)
         print(f"  {label:6} " + ", ".join(f"{k}={n}" for k, n in sorted(counts.items())))
 
@@ -487,7 +540,10 @@ def main() -> None:
             spec = config_spec(vm, lambda pg: vim.vm.device.VirtualEthernetCard.NetworkBackingInfo(deviceName=pg))
             gpus = ",".join(g.get("profile") or g["label"] for g in vm["_gpu"]) or "-"
             print(f"{vm['name']:24} {spec.guestId:28} {spec.firmware:4} sb={spec.bootOptions.efiSecureBootEnabled!s:5} "
-                  f"cbt={vm['_cbt']:7} disks={len(vm['disks'])} gpu={gpus}")
+                  f"cbt={vm['_cbt']:7} tools={tools_state(vm)['toolsVersionStatus2'].removeprefix('guestTools'):12} "
+                  f"{tools_state(vm)['toolsRunningStatus'].removeprefix('guestTools'):17} "
+                  f"snaps={len(vm.get('snapshots') or [])} ds={len(vm['_datastores'])} nics={len(vm['nics'])} "
+                  f"disks={len(vm['disks'])} gpu={gpus}")
         summarize(vms)
         return
 

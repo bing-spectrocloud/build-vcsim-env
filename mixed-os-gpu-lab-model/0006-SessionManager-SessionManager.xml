@@ -4,17 +4,82 @@
     <name>sessionList</name>
     <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfUserSession">
       <UserSession>
+        <key>3320905f-1d3d-44a9-89c4-6c9d597fea0b</key>
+        <userName>user</userName>
+        <fullName>user</fullName>
+        <loginTime>2026-10-26T20:39:04.653389938Z</loginTime>
+        <lastActiveTime>2026-10-26T13:39:04.658175974-07:00</lastActiveTime>
+        <locale>en_US</locale>
+        <messageLocale>en_US</messageLocale>
+        <extensionSession>false</extensionSession>
+        <ipAddress>127.0.0.1</ipAddress>
+        <userAgent>pyvmomi 9.1.1.0 OSS Python/3.12.3 (Linux; 6.6.87.2-microsoft-standard-WSL2; x86_64)</userAgent>
+        <callCount>7</callCount>
+      </UserSession>
+      <UserSession>
+        <key>2a08b0ec-7205-4dc7-8d60-8ba21bb12332</key>
+        <userName>user</userName>
+        <fullName>user</fullName>
+        <loginTime>2026-10-26T20:44:29.531771835Z</loginTime>
+        <lastActiveTime>2026-10-26T13:44:29.536669563-07:00</lastActiveTime>
+        <locale>en_US</locale>
+        <messageLocale>en_US</messageLocale>
+        <extensionSession>false</extensionSession>
+        <ipAddress>127.0.0.1</ipAddress>
+        <userAgent>pyvmomi 9.1.1.0 OSS Python/3.12.3 (Linux; 6.6.87.2-microsoft-standard-WSL2; x86_64)</userAgent>
+        <callCount>7</callCount>
+      </UserSession>
+      <UserSession>
+        <key>0ac2fc19-54a5-48d9-b921-b739caedfba3</key>
+        <userName>user</userName>
+        <fullName>user</fullName>
+        <loginTime>2026-10-26T20:49:20.869543217Z</loginTime>
+        <lastActiveTime>2026-10-26T13:49:20.878695919-07:00</lastActiveTime>
+        <locale>en_US</locale>
+        <messageLocale>en_US</messageLocale>
+        <extensionSession>false</extensionSession>
+        <ipAddress>127.0.0.1</ipAddress>
+        <userAgent>pyvmomi 9.1.1.0 OSS Python/3.12.3 (Linux; 6.6.87.2-microsoft-standard-WSL2; x86_64)</userAgent>
+        <callCount>8</callCount>
+      </UserSession>
+      <UserSession>
         <key>91d54cb3-ae95-4a22-859a-c377060736fb</key>
         <userName>user</userName>
         <fullName>user</fullName>
         <loginTime>2026-10-26T20:24:52.324710133Z</loginTime>
-        <lastActiveTime>2026-10-26T13:24:52.335063049-07:00</lastActiveTime>
+        <lastActiveTime>2026-10-26T16:24:43.091499522-07:00</lastActiveTime>
         <locale>en_US</locale>
         <messageLocale>en_US</messageLocale>
         <extensionSession>false</extensionSession>
         <ipAddress>127.0.0.1</ipAddress>
         <userAgent>govc/0.56.2</userAgent>
-        <callCount>4</callCount>
+        <callCount>56</callCount>
+      </UserSession>
+      <UserSession>
+        <key>dc7a692a-5fc4-411a-979f-dcf97bbdc574</key>
+        <userName>user</userName>
+        <fullName>user</fullName>
+        <loginTime>2026-10-26T20:37:58.773088859Z</loginTime>
+        <lastActiveTime>2026-10-26T13:37:58.778228145-07:00</lastActiveTime>
+        <locale>en_US</locale>
+        <messageLocale>en_US</messageLocale>
+        <extensionSession>false</extensionSession>
+        <ipAddress>127.0.0.1</ipAddress>
+        <userAgent>pyvmomi 9.1.1.0 OSS Python/3.12.3 (Linux; 6.6.87.2-microsoft-standard-WSL2; x86_64)</userAgent>
+        <callCount>7</callCount>
+      </UserSession>
+      <UserSession>
+        <key>2017c9a9-1af1-475f-b6f0-3101f9fa759c</key>
+        <userName>user</userName>
+        <fullName>user</fullName>
+        <loginTime>2026-10-26T20:38:50.441586206Z</loginTime>
+        <lastActiveTime>2026-10-26T13:38:50.446162649-07:00</lastActiveTime>
+        <locale>en_US</locale>
+        <messageLocale>en_US</messageLocale>
+        <extensionSession>false</extensionSession>
+        <ipAddress>127.0.0.1</ipAddress>
+        <userAgent>pyvmomi 9.1.1.0 OSS Python/3.12.3 (Linux; 6.6.87.2-microsoft-standard-WSL2; x86_64)</userAgent>
+        <callCount>7</callCount>
       </UserSession>
     </val>
   </propSet>
@@ -25,13 +90,13 @@
       <userName>user</userName>
       <fullName>user</fullName>
       <loginTime>2026-10-26T20:24:52.324710133Z</loginTime>
-      <lastActiveTime>2026-10-26T13:24:52.335063049-07:00</lastActiveTime>
+      <lastActiveTime>2026-10-26T16:24:43.091499522-07:00</lastActiveTime>
       <locale>en_US</locale>
       <messageLocale>en_US</messageLocale>
       <extensionSession>false</extensionSession>
       <ipAddress>127.0.0.1</ipAddress>
       <userAgent>govc/0.56.2</userAgent>
-      <callCount>4</callCount>
+      <callCount>56</callCount>
     </val>
   </propSet>
   <propSet>

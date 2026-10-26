@@ -54,6 +54,31 @@
       <mode>readWrite</mode>
       <vStorageSupport>vStorageUnsupported</vStorageSupport>
     </datastore>
+    <datastore>
+      <name>ds-gpu-scratch</name>
+      <datastore>
+        <datastore type="Datastore">datastore-237</datastore>
+        <name>ds-gpu-scratch</name>
+        <url>/tmp/vcsim-lab/ds-gpu-scratch</url>
+        <capacity>3298534883328</capacity>
+        <freeSpace>3298534883328</freeSpace>
+        <accessible>true</accessible>
+        <type>OTHER</type>
+        <maintenanceMode>normal</maintenanceMode>
+      </datastore>
+      <capability>
+        <directoryHierarchySupported>true</directoryHierarchySupported>
+        <rawDiskMappingsSupported>false</rawDiskMappingsSupported>
+        <perFileThinProvisioningSupported>true</perFileThinProvisioningSupported>
+        <storageIORMSupported>false</storageIORMSupported>
+        <nativeSnapshotSupported>false</nativeSnapshotSupported>
+        <topLevelDirectoryCreateSupported>true</topLevelDirectoryCreateSupported>
+        <seSparseSupported>false</seSparseSupported>
+      </capability>
+      <maxFileSize>0</maxFileSize>
+      <mode>readWrite</mode>
+      <vStorageSupport>vStorageUnsupported</vStorageSupport>
+    </datastore>
     <network>
       <name>VM Network</name>
       <network xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="NetworkSummary">

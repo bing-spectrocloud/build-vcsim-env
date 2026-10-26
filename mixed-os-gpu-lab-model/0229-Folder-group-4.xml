@@ -77,6 +77,7 @@
       <ManagedObjectReference type="Datastore">datastore-83</ManagedObjectReference>
       <ManagedObjectReference type="Datastore">datastore-85</ManagedObjectReference>
       <ManagedObjectReference type="Datastore">datastore-87</ManagedObjectReference>
+      <ManagedObjectReference type="Datastore">datastore-237</ManagedObjectReference>
     </val>
   </propSet>
   <propSet>
@@ -156,6 +157,7 @@
       <ManagedObjectReference type="Datastore">datastore-83</ManagedObjectReference>
       <ManagedObjectReference type="Datastore">datastore-85</ManagedObjectReference>
       <ManagedObjectReference type="Datastore">datastore-87</ManagedObjectReference>
+      <ManagedObjectReference type="Datastore">datastore-237</ManagedObjectReference>
     </val>
   </propSet>
 </ObjectContent>

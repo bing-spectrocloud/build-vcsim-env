@@ -6687,6 +6687,7 @@
     <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
       <ManagedObjectReference type="Datastore">datastore-85</ManagedObjectReference>
       <ManagedObjectReference type="Datastore">datastore-87</ManagedObjectReference>
+      <ManagedObjectReference type="Datastore">datastore-237</ManagedObjectReference>
     </val>
   </propSet>
   <propSet>
