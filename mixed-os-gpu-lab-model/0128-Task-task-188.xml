@@ -1,0 +1,32 @@
+<ObjectContent>
+  <obj type="Task">task-188</obj>
+  <propSet>
+    <name>value</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue"></val>
+  </propSet>
+  <propSet>
+    <name>availableField</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldDef"></val>
+  </propSet>
+  <propSet>
+    <name>info</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="TaskInfo">
+      <key>task-188</key>
+      <task type="Task">task-188</task>
+      <name>PowerOn</name>
+      <descriptionId>VirtualMachine.powerOn</descriptionId>
+      <entity type="VirtualMachine">vm-186</entity>
+      <entityName>vm-186</entityName>
+      <state>success</state>
+      <cancelled>false</cancelled>
+      <cancelable>false</cancelable>
+      <reason _XMLSchema-instance:type="TaskReasonUser">
+        <userName>vcsim</userName>
+      </reason>
+      <queueTime>2026-10-26T13:05:18.021414466-07:00</queueTime>
+      <startTime>2026-10-26T13:05:18.021430352-07:00</startTime>
+      <completeTime>2026-10-26T13:05:18.021783864-07:00</completeTime>
+      <eventChainId>0</eventChainId>
+    </val>
+  </propSet>
+</ObjectContent>

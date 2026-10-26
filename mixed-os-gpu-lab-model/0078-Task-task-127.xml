@@ -1,0 +1,33 @@
+<ObjectContent>
+  <obj type="Task">task-127</obj>
+  <propSet>
+    <name>value</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue"></val>
+  </propSet>
+  <propSet>
+    <name>availableField</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldDef"></val>
+  </propSet>
+  <propSet>
+    <name>info</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="TaskInfo">
+      <key>task-127</key>
+      <task type="Task">task-127</task>
+      <name>CreateSnapshotEx</name>
+      <descriptionId>VirtualMachine.createSnapshotEx</descriptionId>
+      <entity type="VirtualMachine">vm-124</entity>
+      <entityName>vm-124</entityName>
+      <state>success</state>
+      <cancelled>false</cancelled>
+      <cancelable>false</cancelable>
+      <result type="VirtualMachineSnapshot" _XMLSchema-instance:type="ManagedObjectReference">snapshot-128</result>
+      <reason _XMLSchema-instance:type="TaskReasonUser">
+        <userName>vcsim</userName>
+      </reason>
+      <queueTime>2026-10-26T13:05:15.062117547-07:00</queueTime>
+      <startTime>2026-10-26T13:05:15.062145469-07:00</startTime>
+      <completeTime>2026-10-26T13:05:15.062977992-07:00</completeTime>
+      <eventChainId>0</eventChainId>
+    </val>
+  </propSet>
+</ObjectContent>

@@ -1,0 +1,471 @@
+# vcsim model profile: mixed Ubuntu / RHEL / Windows estate split across a CPU
+# cluster and a GPU cluster, with every CBT mode and boot configuration we care
+# about represented at least once. Build it with:
+#
+#   python build_profile.py profiles/mixed-os-gpu-lab.yaml
+#
+# Sections:
+#   inventory      datacenter, clusters, hosts, datastores, networks, folders, pools
+#   presets        reusable os / boot / cbt / gpu settings referenced by VMs
+#   vms            the VMs themselves (count > 1 expands {n} in the name)
+#
+# CBT modes (presets.cbt):
+#   off        changeTrackingEnabled=false, no ctk keys
+#   on         changeTrackingEnabled=true, every disk scsiX:Y.ctkEnabled=TRUE
+#   partial    CBT on, but disks with `ctk: false` get scsiX:Y.ctkEnabled=FALSE
+#   stale      changeTrackingEnabled=false while ctkEnabled=TRUE lingers in
+#              extraConfig (what you see after a botched backup-agent cleanup)
+#
+# Disk modes: persistent | independent_persistent | independent_nonpersistent.
+# Independent disks are skipped by snapshots, so they double as a CBT edge case.
+#
+# Keep "on"/"off" quoted: bare on/off are YAML 1.1 booleans.
+
+name: mixed-os-gpu-lab
+
+inventory:
+  datacenter: dc-lab
+
+  custom_fields:
+    host: [gpu.model, gpu.count, host.role]
+    vm: [os.family, boot.profile, cbt.mode, gpu.profile, app.role]
+
+  clusters:
+    - name: cpu-cluster
+      drs: true
+      ha: true
+      resource_pools: [rp-prod, rp-dev]
+      hosts:
+        - { name: esx-cpu-01.lab.local, fields: { host.role: compute } }
+        - { name: esx-cpu-02.lab.local, fields: { host.role: compute } }
+        - { name: esx-cpu-03.lab.local, fields: { host.role: compute } }
+        - { name: esx-cpu-04.lab.local, fields: { host.role: compute }, maintenance: true }
+
+    - name: gpu-cluster
+      drs: true
+      ha: false            # passthrough GPUs pin VMs, so HA is usually off here
+      resource_pools: [rp-training, rp-inference]
+      hosts:
+        - { name: esx-gpu-01.lab.local, fields: { host.role: gpu, gpu.model: NVIDIA A100-SXM4-80GB, gpu.count: "4" } }
+        - { name: esx-gpu-02.lab.local, fields: { host.role: gpu, gpu.model: NVIDIA A100-SXM4-80GB, gpu.count: "4" } }
+        - { name: esx-gpu-03.lab.local, fields: { host.role: gpu, gpu.model: NVIDIA L40S, gpu.count: "2" } }
+
+  # Local datastores mounted on every host of the listed clusters (i.e. shared).
+  # `path` is relative to --datastore-root.
+  datastores:
+    - { name: ds-cpu-ssd, path: ds-cpu-ssd, clusters: [cpu-cluster] }
+    - { name: ds-cpu-capacity, path: ds-cpu-capacity, clusters: [cpu-cluster] }
+    - { name: ds-gpu-nvme, path: ds-gpu-nvme, clusters: [gpu-cluster] }
+    - { name: ds-templates, path: ds-templates, clusters: [cpu-cluster, gpu-cluster] }
+
+  networks:
+    dvs: dvs-lab
+    portgroups:
+      - { name: pg-mgmt, vlan: 10 }
+      - { name: pg-app, vlan: 20 }
+      - { name: pg-db, vlan: 30 }
+      - { name: pg-pxe, vlan: 40 }
+      - { name: pg-gpu-rdma, vlan: 50 }
+
+  vm_folders: [linux, windows, gpu, templates]
+
+presets:
+  os:
+    ubuntu-20.04: { guest_id: ubuntu64Guest, family: linux, scsi: pvscsi, nic: vmxnet3, hw_version: vmx-17 }
+    ubuntu-22.04: { guest_id: ubuntu64Guest, family: linux, scsi: pvscsi, nic: vmxnet3, hw_version: vmx-19 }
+    ubuntu-24.04: { guest_id: ubuntu64Guest, family: linux, scsi: pvscsi, nic: vmxnet3, hw_version: vmx-20 }
+    rhel-7:       { guest_id: rhel7_64Guest, family: linux, scsi: lsilogic, nic: vmxnet3, hw_version: vmx-14 }
+    rhel-8:       { guest_id: rhel8_64Guest, family: linux, scsi: pvscsi, nic: vmxnet3, hw_version: vmx-19 }
+    rhel-9:       { guest_id: rhel9_64Guest, family: linux, scsi: pvscsi, nic: vmxnet3, hw_version: vmx-20 }
+    win-10:       { guest_id: windows9_64Guest, family: windows, scsi: lsilogic-sas, nic: e1000e, hw_version: vmx-17 }
+    win-11:       { guest_id: windows11_64Guest, family: windows, scsi: nvme, nic: vmxnet3, hw_version: vmx-20 }
+    win-2016:     { guest_id: windows9Server64Guest, family: windows, scsi: lsilogic-sas, nic: e1000e, hw_version: vmx-14 }
+    win-2019:     { guest_id: windows2019srv_64Guest, family: windows, scsi: lsilogic-sas, nic: vmxnet3, hw_version: vmx-19 }
+    win-2022:     { guest_id: windows2019srvNext_64Guest, family: windows, scsi: pvscsi, nic: vmxnet3, hw_version: vmx-19 }
+    win-2025:     { guest_id: windows2022srvNext_64Guest, family: windows, scsi: pvscsi, nic: vmxnet3, hw_version: vmx-21 }
+
+  boot:
+    bios:            { firmware: bios }
+    bios-cdrom-setup:                 # first boot from ISO, drop into setup, slow POST
+      firmware: bios
+      boot_order: [cdrom, disk]
+      boot_delay_ms: 10000
+      enter_setup: true
+      cdrom: true
+    efi:             { firmware: efi }
+    efi-secure:      { firmware: efi, secure_boot: true }
+    efi-secure-vtpm: { firmware: efi, secure_boot: true, vtpm: true }
+    efi-pxe:                          # network-first, retry if PXE fails
+      firmware: efi
+      boot_order: [network, disk]
+      boot_retry_delay_ms: 30000
+    efi-disk-only:   { firmware: efi, boot_order: [disk] }
+
+  cbt:
+    "off":     { mode: "off" }
+    "on":      { mode: "on" }
+    partial: { mode: partial }
+    stale:   { mode: stale }
+
+  # GPUs. `vgpu` = NVIDIA vGPU (mediated, Vmiop backing); `passthrough` =
+  # DirectPath I/O via dynamic backing on vendor/device id.
+  gpu:
+    a100-vgpu-40c:  { type: vgpu, profile: grid_a100-40c }
+    a100-vgpu-10c:  { type: vgpu, profile: grid_a100-10c }
+    a100-passthru:  { type: passthrough, vendor_id: 0x10de, device_id: 0x20b2, label: A100-SXM4-80GB }
+    l40s-vgpu-24q:  { type: vgpu, profile: nvidia_l40s-24q }
+    l40s-vgpu-8q:   { type: vgpu, profile: nvidia_l40s-8q }
+    l40s-passthru:  { type: passthrough, vendor_id: 0x10de, device_id: 0x26b9, label: L40S }
+
+# Defaults applied to every VM unless overridden.
+defaults:
+  cpu: 2
+  cores_per_socket: 1
+  memory_mb: 4096
+  power: "on"
+  disks: [{ size_gb: 40 }]
+  nics: [pg-app]
+
+vms:
+  # ---------------------------------------------------------------- Ubuntu / CPU
+  - name: ubu2004-legacy-{n:02d}
+    count: 2
+    os: ubuntu-20.04
+    boot: bios
+    cbt: "off"
+    cluster: cpu-cluster
+    pool: rp-dev
+    folder: linux
+    datastore: ds-cpu-capacity
+    power: "off"
+    role: legacy-app
+
+  - name: ubu2204-web-{n:02d}
+    count: 3
+    os: ubuntu-22.04
+    boot: efi
+    cbt: "on"
+    cluster: cpu-cluster
+    pool: rp-prod
+    folder: linux
+    datastore: ds-cpu-ssd
+    nics: [pg-app, pg-mgmt]
+    role: web
+    snapshots: [pre-patch]
+
+  - name: ubu2404-db-01
+    os: ubuntu-24.04
+    boot: efi-secure
+    cbt: partial
+    cluster: cpu-cluster
+    pool: rp-prod
+    folder: linux
+    datastore: ds-cpu-ssd
+    cpu: 8
+    cores_per_socket: 4
+    memory_mb: 32768
+    nics: [pg-db, pg-mgmt]
+    disks:
+      - { size_gb: 60 }
+      - { size_gb: 500, provisioning: eager_zeroed }
+      - { size_gb: 200, mode: independent_persistent, ctk: false }   # scratch/tmp
+    role: database
+    snapshots: [baseline, post-schema-migration]
+
+  - name: ubu2404-pxe-01
+    os: ubuntu-24.04
+    boot: efi-pxe
+    cbt: "off"
+    cluster: cpu-cluster
+    pool: rp-dev
+    folder: linux
+    datastore: ds-cpu-capacity
+    nics: [pg-pxe]
+    power: "off"
+    role: pxe-install
+
+  # ------------------------------------------------------------------ RHEL / CPU
+  - name: rhel7-legacy-01
+    os: rhel-7
+    boot: bios
+    cbt: stale
+    cluster: cpu-cluster
+    pool: rp-prod
+    folder: linux
+    datastore: ds-cpu-capacity
+    disks: [{ size_gb: 40 }, { size_gb: 100, provisioning: thick }]
+    role: legacy-app
+
+  - name: rhel8-app-{n:02d}
+    count: 2
+    os: rhel-8
+    boot: efi
+    cbt: "on"
+    cluster: cpu-cluster
+    pool: rp-prod
+    folder: linux
+    datastore: ds-cpu-ssd
+    cpu: 4
+    memory_mb: 8192
+    role: app
+
+  - name: rhel9-db-01
+    os: rhel-9
+    boot: efi-secure
+    cbt: "on"
+    cluster: cpu-cluster
+    pool: rp-prod
+    folder: linux
+    datastore: ds-cpu-ssd
+    cpu: 8
+    cores_per_socket: 8
+    memory_mb: 65536
+    nics: [pg-db, pg-mgmt]
+    disks:
+      - { size_gb: 80 }
+      - { size_gb: 1024, provisioning: eager_zeroed }
+      - { size_gb: 256, provisioning: eager_zeroed }
+    role: database
+    snapshots: [nightly]
+
+  - name: rhel9-kickstart-01
+    os: rhel-9
+    boot: bios-cdrom-setup
+    cbt: "off"
+    cluster: cpu-cluster
+    pool: rp-dev
+    folder: linux
+    datastore: ds-cpu-capacity
+    power: "off"
+    role: install
+
+  - name: rhel9-suspended-01
+    os: rhel-9
+    boot: efi-disk-only
+    cbt: "on"
+    cluster: cpu-cluster
+    pool: rp-dev
+    folder: linux
+    datastore: ds-cpu-capacity
+    power: suspended
+    role: app
+
+  # --------------------------------------------------------------- Windows / CPU
+  - name: win2016-dc-01
+    os: win-2016
+    boot: bios
+    cbt: "on"
+    cluster: cpu-cluster
+    pool: rp-prod
+    folder: windows
+    datastore: ds-cpu-ssd
+    memory_mb: 8192
+    nics: [pg-mgmt]
+    role: domain-controller
+
+  - name: win2019-sql-01
+    os: win-2019
+    boot: efi
+    cbt: partial
+    cluster: cpu-cluster
+    pool: rp-prod
+    folder: windows
+    datastore: ds-cpu-ssd
+    cpu: 8
+    cores_per_socket: 4
+    memory_mb: 32768
+    nics: [pg-db]
+    disks:
+      - { size_gb: 100 }
+      - { size_gb: 500, provisioning: eager_zeroed }               # data
+      - { size_gb: 100, provisioning: eager_zeroed }               # logs
+      - { size_gb: 64, mode: independent_nonpersistent, ctk: false } # tempdb
+    role: database
+    snapshots: [pre-cu-update]
+
+  - name: win2022-file-01
+    os: win-2022
+    boot: efi-secure
+    cbt: "on"
+    cluster: cpu-cluster
+    pool: rp-prod
+    folder: windows
+    datastore: ds-cpu-capacity
+    memory_mb: 16384
+    disks: [{ size_gb: 100 }, { size_gb: 2048 }]
+    role: file-server
+    snapshots: [weekly-1, weekly-2, weekly-3]   # deep snapshot chain
+
+  - name: win2025-app-01
+    os: win-2025
+    boot: efi-secure-vtpm
+    cbt: "off"
+    cluster: cpu-cluster
+    pool: rp-dev
+    folder: windows
+    datastore: ds-cpu-ssd
+    cpu: 4
+    memory_mb: 16384
+    role: app
+
+  - name: win11-vdi-{n:02d}
+    count: 3
+    os: win-11
+    boot: efi-secure-vtpm
+    cbt: "off"
+    cluster: cpu-cluster
+    pool: rp-dev
+    folder: windows
+    datastore: ds-cpu-ssd
+    cpu: 2
+    memory_mb: 8192
+    disks: [{ size_gb: 80 }]
+    role: vdi
+
+  - name: win10-legacy-01
+    os: win-10
+    boot: bios
+    cbt: stale
+    cluster: cpu-cluster
+    pool: rp-dev
+    folder: windows
+    datastore: ds-cpu-capacity
+    power: "off"
+    role: legacy-desktop
+
+  # ------------------------------------------------------------------------ GPU
+  - name: ubu2204-train-{n:02d}
+    count: 2
+    os: ubuntu-22.04
+    boot: efi
+    cbt: "off"                  # vGPU VMs are often excluded from CBT backups
+    gpu: [a100-vgpu-40c, a100-vgpu-40c]
+    cluster: gpu-cluster
+    host: esx-gpu-01.lab.local
+    pool: rp-training
+    folder: gpu
+    datastore: ds-gpu-nvme
+    cpu: 32
+    cores_per_socket: 16
+    memory_mb: 262144
+    nics: [pg-app, pg-gpu-rdma]
+    disks: [{ size_gb: 200 }, { size_gb: 2048 }]
+    role: training
+
+  - name: ubu2204-train-pt-01
+    os: ubuntu-22.04
+    boot: efi
+    cbt: "on"
+    gpu: [a100-passthru, a100-passthru, a100-passthru, a100-passthru]
+    cluster: gpu-cluster
+    host: esx-gpu-02.lab.local
+    pool: rp-training
+    folder: gpu
+    datastore: ds-gpu-nvme
+    cpu: 64
+    cores_per_socket: 32
+    memory_mb: 524288
+    nics: [pg-app, pg-gpu-rdma]
+    disks: [{ size_gb: 200 }, { size_gb: 4096 }]
+    role: training
+
+  - name: ubu2404-infer-{n:02d}
+    count: 2
+    os: ubuntu-24.04
+    boot: efi-secure
+    cbt: "on"
+    gpu: [l40s-vgpu-24q]
+    cluster: gpu-cluster
+    host: esx-gpu-03.lab.local
+    pool: rp-inference
+    folder: gpu
+    datastore: ds-gpu-nvme
+    cpu: 16
+    cores_per_socket: 8
+    memory_mb: 65536
+    role: inference
+    snapshots: [model-v1]
+
+  - name: rhel9-infer-01
+    os: rhel-9
+    boot: efi-secure
+    cbt: partial
+    gpu: [a100-vgpu-10c]
+    cluster: gpu-cluster
+    host: esx-gpu-01.lab.local
+    pool: rp-inference
+    folder: gpu
+    datastore: ds-gpu-nvme
+    cpu: 8
+    memory_mb: 65536
+    disks: [{ size_gb: 100 }, { size_gb: 500, mode: independent_persistent, ctk: false }]
+    role: inference
+
+  - name: rhel8-hpc-01
+    os: rhel-8
+    boot: efi
+    cbt: stale
+    gpu: [l40s-passthru]
+    cluster: gpu-cluster
+    host: esx-gpu-03.lab.local
+    pool: rp-training
+    folder: gpu
+    datastore: ds-gpu-nvme
+    cpu: 16
+    memory_mb: 131072
+    nics: [pg-app, pg-gpu-rdma]
+    power: "off"
+    role: hpc
+
+  - name: win2022-gpu-vdi-01
+    os: win-2022
+    boot: efi-secure-vtpm
+    cbt: "off"
+    gpu: [l40s-vgpu-8q]
+    cluster: gpu-cluster
+    host: esx-gpu-03.lab.local
+    pool: rp-inference
+    folder: gpu
+    datastore: ds-gpu-nvme
+    cpu: 8
+    memory_mb: 32768
+    role: graphics-vdi
+
+  # ------------------------------------------------------------------ Templates
+  - name: tpl-ubuntu-2404
+    os: ubuntu-24.04
+    boot: efi-secure
+    cbt: "off"
+    cluster: cpu-cluster
+    folder: templates
+    datastore: ds-templates
+    template: true
+
+  - name: tpl-rhel-9
+    os: rhel-9
+    boot: efi-secure
+    cbt: "off"
+    cluster: cpu-cluster
+    folder: templates
+    datastore: ds-templates
+    template: true
+
+  - name: tpl-win-2022
+    os: win-2022
+    boot: efi-secure-vtpm
+    cbt: "off"
+    cluster: cpu-cluster
+    folder: templates
+    datastore: ds-templates
+    disks: [{ size_gb: 100 }]
+    template: true
+
+  - name: tpl-ubuntu-2204-gpu
+    os: ubuntu-22.04
+    boot: efi
+    cbt: "off"
+    gpu: [a100-vgpu-10c]
+    cluster: gpu-cluster
+    folder: templates
+    datastore: ds-templates
+    template: true

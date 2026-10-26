@@ -1,0 +1,741 @@
+<ObjectContent>
+  <obj type="VirtualMachine">vm-200</obj>
+  <propSet>
+    <name>value</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue">
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>3</key>
+        <value>linux</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>4</key>
+        <value>efi</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>5</key>
+        <value>on</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>6</key>
+        <value>A100-SXM4-80GB,A100-SXM4-80GB,A100-SXM4-80GB,A100-SXM4-80GB</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>7</key>
+        <value>training</value>
+      </CustomFieldValue>
+    </val>
+  </propSet>
+  <propSet>
+    <name>availableField</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldDef">
+      <CustomFieldDef>
+        <key>3</key>
+        <name>os.family</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>4</key>
+        <name>boot.profile</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>5</key>
+        <name>cbt.mode</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>6</key>
+        <name>gpu.profile</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>7</key>
+        <name>app.role</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+    </val>
+  </propSet>
+  <propSet>
+    <name>parent</name>
+    <val type="Folder" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">group-102</val>
+  </propSet>
+  <propSet>
+    <name>customValue</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue">
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>3</key>
+        <value>linux</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>4</key>
+        <value>efi</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>5</key>
+        <value>on</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>6</key>
+        <value>A100-SXM4-80GB,A100-SXM4-80GB,A100-SXM4-80GB,A100-SXM4-80GB</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>7</key>
+        <value>training</value>
+      </CustomFieldValue>
+    </val>
+  </propSet>
+  <propSet>
+    <name>overallStatus</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedEntityStatus">green</val>
+  </propSet>
+  <propSet>
+    <name>configStatus</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedEntityStatus">green</val>
+  </propSet>
+  <propSet>
+    <name>configIssue</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfEvent"></val>
+  </propSet>
+  <propSet>
+    <name>effectiveRole</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfInt">
+      <int>-1</int>
+    </val>
+  </propSet>
+  <propSet>
+    <name>permission</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfPermission"></val>
+  </propSet>
+  <propSet>
+    <name>name</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="xsd:string">ubu2204-train-pt-01</val>
+  </propSet>
+  <propSet>
+    <name>disabledMethod</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfString"></val>
+  </propSet>
+  <propSet>
+    <name>recentTask</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="Task">task-201</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-202</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>declaredAlarmState</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfAlarmState"></val>
+  </propSet>
+  <propSet>
+    <name>triggeredAlarmState</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfAlarmState"></val>
+  </propSet>
+  <propSet>
+    <name>tag</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfTag"></val>
+  </propSet>
+  <propSet>
+    <name>capability</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineCapability">
+      <snapshotOperationsSupported>false</snapshotOperationsSupported>
+      <multipleSnapshotsSupported>false</multipleSnapshotsSupported>
+      <snapshotConfigSupported>false</snapshotConfigSupported>
+      <poweredOffSnapshotsSupported>false</poweredOffSnapshotsSupported>
+      <memorySnapshotsSupported>false</memorySnapshotsSupported>
+      <revertToSnapshotSupported>false</revertToSnapshotSupported>
+      <quiescedSnapshotsSupported>false</quiescedSnapshotsSupported>
+      <disableSnapshotsSupported>false</disableSnapshotsSupported>
+      <lockSnapshotsSupported>false</lockSnapshotsSupported>
+      <consolePreferencesSupported>false</consolePreferencesSupported>
+      <cpuFeatureMaskSupported>false</cpuFeatureMaskSupported>
+      <s1AcpiManagementSupported>false</s1AcpiManagementSupported>
+      <settingScreenResolutionSupported>false</settingScreenResolutionSupported>
+      <toolsAutoUpdateSupported>false</toolsAutoUpdateSupported>
+      <vmNpivWwnSupported>false</vmNpivWwnSupported>
+      <npivWwnOnNonRdmVmSupported>false</npivWwnOnNonRdmVmSupported>
+      <vmNpivWwnDisableSupported>false</vmNpivWwnDisableSupported>
+      <vmNpivWwnUpdateSupported>false</vmNpivWwnUpdateSupported>
+      <swapPlacementSupported>false</swapPlacementSupported>
+      <toolsSyncTimeSupported>false</toolsSyncTimeSupported>
+      <virtualMmuUsageSupported>false</virtualMmuUsageSupported>
+      <diskSharesSupported>false</diskSharesSupported>
+      <bootOptionsSupported>false</bootOptionsSupported>
+      <bootRetryOptionsSupported>false</bootRetryOptionsSupported>
+      <settingVideoRamSizeSupported>false</settingVideoRamSizeSupported>
+      <settingDisplayTopologySupported>false</settingDisplayTopologySupported>
+      <recordReplaySupported>false</recordReplaySupported>
+      <changeTrackingSupported>true</changeTrackingSupported>
+      <multipleCoresPerSocketSupported>false</multipleCoresPerSocketSupported>
+      <hostBasedReplicationSupported>false</hostBasedReplicationSupported>
+      <guestAutoLockSupported>false</guestAutoLockSupported>
+      <memoryReservationLockSupported>false</memoryReservationLockSupported>
+      <featureRequirementSupported>false</featureRequirementSupported>
+      <poweredOnMonitorTypeChangeSupported>false</poweredOnMonitorTypeChangeSupported>
+      <seSparseDiskSupported>false</seSparseDiskSupported>
+      <nestedHVSupported>false</nestedHVSupported>
+      <vPMCSupported>false</vPMCSupported>
+    </val>
+  </propSet>
+  <propSet>
+    <name>config</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineConfigInfo">
+      <changeVersion>1793045118707615275</changeVersion>
+      <modified>2026-10-26T13:05:18.707615275-07:00</modified>
+      <name>ubu2204-train-pt-01</name>
+      <guestFullName>ubuntu64Guest</guestFullName>
+      <version>vmx-19</version>
+      <uuid>d401c8e0-cf56-5235-abdd-808ef228c0e9</uuid>
+      <createDate>2026-10-26T13:05:18.602935301-07:00</createDate>
+      <instanceUuid>5114f4c9-2e20-5ad3-aae7-85801a12cbde</instanceUuid>
+      <template>false</template>
+      <guestId>ubuntu64Guest</guestId>
+      <alternateGuestName></alternateGuestName>
+      <annotation>profile=mixed-os-gpu-lab os=ubuntu-22.04 boot=efi cbt=on</annotation>
+      <files>
+        <vmPathName>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01.vmx</vmPathName>
+        <snapshotDirectory>[ds-gpu-nvme] ubu2204-train-pt-01</snapshotDirectory>
+        <suspendDirectory>[ds-gpu-nvme] ubu2204-train-pt-01</suspendDirectory>
+        <logDirectory>[ds-gpu-nvme] ubu2204-train-pt-01</logDirectory>
+      </files>
+      <tools></tools>
+      <flags></flags>
+      <defaultPowerOps></defaultPowerOps>
+      <hardware>
+        <numCPU>64</numCPU>
+        <numCoresPerSocket>32</numCoresPerSocket>
+        <memoryMB>524288</memoryMB>
+        <device _XMLSchema-instance:type="VirtualPCIController">
+          <key>100</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>PCI controller 0</label>
+            <summary>PCI controller 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+          <device>500</device>
+          <device>12000</device>
+          <device>205</device>
+          <device>206</device>
+        </device>
+        <device _XMLSchema-instance:type="VirtualIDEController">
+          <key>200</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>IDE 0</label>
+            <summary>IDE 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualIDEController">
+          <key>201</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>IDE 1</label>
+            <summary>IDE 1</summary>
+          </deviceInfo>
+          <busNumber>1</busNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualPS2Controller">
+          <key>300</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>PS2 controller 0</label>
+            <summary>PS2 controller 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+          <device>600</device>
+          <device>700</device>
+        </device>
+        <device _XMLSchema-instance:type="VirtualSIOController">
+          <key>400</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>SIO controller 0</label>
+            <summary>SIO controller 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualKeyboard">
+          <key>600</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>Keyboard </label>
+            <summary>Keyboard</summary>
+          </deviceInfo>
+          <controllerKey>300</controllerKey>
+          <unitNumber>0</unitNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualPointingDevice">
+          <key>700</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>Pointing device</label>
+            <summary>Pointing device; Device</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualPointingDeviceDeviceBackingInfo">
+            <deviceName></deviceName>
+            <useAutoDetect>false</useAutoDetect>
+            <hostPointingDevice>autodetect</hostPointingDevice>
+          </backing>
+          <controllerKey>300</controllerKey>
+          <unitNumber>1</unitNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualMachineVideoCard">
+          <key>500</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>Video card </label>
+            <summary>Video card</summary>
+          </deviceInfo>
+          <controllerKey>100</controllerKey>
+          <unitNumber>0</unitNumber>
+          <videoRamSizeInKB>4096</videoRamSizeInKB>
+          <numDisplays>1</numDisplays>
+          <useAutoDetect>false</useAutoDetect>
+          <enable3DSupport>false</enable3DSupport>
+          <use3dRenderer>automatic</use3dRenderer>
+          <graphicsMemorySizeInKB>262144</graphicsMemorySizeInKB>
+        </device>
+        <device _XMLSchema-instance:type="VirtualMachineVMCIDevice">
+          <key>12000</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>VMCI device</label>
+            <summary>Device on the virtual machine PCI bus that provides support for the virtual machine communication interface</summary>
+          </deviceInfo>
+          <controllerKey>100</controllerKey>
+          <unitNumber>17</unitNumber>
+          <id>-1</id>
+          <allowUnrestrictedCommunication>false</allowUnrestrictedCommunication>
+          <filterEnable>true</filterEnable>
+        </device>
+        <device _XMLSchema-instance:type="ParaVirtualSCSIController">
+          <key>202</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>pvscsi-202</label>
+            <summary>pvscsi-202</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+          <sharedBus>noSharing</sharedBus>
+        </device>
+        <device _XMLSchema-instance:type="VirtualDisk">
+          <key>203</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>disk-202-0</label>
+            <summary>209,715,200 KB</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualDiskFlatVer2BackingInfo">
+            <fileName>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01.vmdk</fileName>
+            <datastore type="Datastore">datastore-85</datastore>
+            <diskMode>persistent</diskMode>
+            <split>false</split>
+            <writeThrough>false</writeThrough>
+            <thinProvisioned>true</thinProvisioned>
+            <eagerlyScrub>false</eagerlyScrub>
+            <uuid>bb27ed08-092b-5d05-877e-fd53b4b6a51a</uuid>
+            <digestEnabled>false</digestEnabled>
+          </backing>
+          <controllerKey>202</controllerKey>
+          <unitNumber>0</unitNumber>
+          <capacityInKB>209715200</capacityInKB>
+          <capacityInBytes>214748364800</capacityInBytes>
+        </device>
+        <device _XMLSchema-instance:type="VirtualDisk">
+          <key>204</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>disk-202-1</label>
+            <summary>4,294,967,296 KB</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualDiskFlatVer2BackingInfo">
+            <fileName>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01_1.vmdk</fileName>
+            <datastore type="Datastore">datastore-85</datastore>
+            <diskMode>persistent</diskMode>
+            <split>false</split>
+            <writeThrough>false</writeThrough>
+            <thinProvisioned>true</thinProvisioned>
+            <eagerlyScrub>false</eagerlyScrub>
+            <uuid>8672c28d-e04d-5fa7-be1d-b62c3edcb054</uuid>
+            <digestEnabled>false</digestEnabled>
+          </backing>
+          <controllerKey>202</controllerKey>
+          <unitNumber>1</unitNumber>
+          <capacityInKB>4294967296</capacityInKB>
+          <capacityInBytes>4398046511104</capacityInBytes>
+        </device>
+        <device _XMLSchema-instance:type="VirtualVmxnet3">
+          <key>205</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>ethernet--7</label>
+            <summary>DVSwitch: 839580d5-e197-537e-aa9d-8a74fb4a5f30</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualEthernetCardDistributedVirtualPortBackingInfo">
+            <port>
+              <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+              <portgroupKey>dvportgroup-96</portgroupKey>
+            </port>
+          </backing>
+          <connectable>
+            <startConnected>true</startConnected>
+            <allowGuestControl>true</allowGuestControl>
+            <connected>true</connected>
+          </connectable>
+          <controllerKey>100</controllerKey>
+          <unitNumber>7</unitNumber>
+          <addressType>generated</addressType>
+          <macAddress>00:0c:29:30:65:39</macAddress>
+          <resourceAllocation>
+            <reservation>0</reservation>
+            <share>
+              <shares>50</shares>
+              <level>normal</level>
+            </share>
+            <limit>-1</limit>
+          </resourceAllocation>
+        </device>
+        <device _XMLSchema-instance:type="VirtualVmxnet3">
+          <key>206</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>ethernet--7</label>
+            <summary>DVSwitch: 839580d5-e197-537e-aa9d-8a74fb4a5f30</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualEthernetCardDistributedVirtualPortBackingInfo">
+            <port>
+              <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+              <portgroupKey>dvportgroup-99</portgroupKey>
+            </port>
+          </backing>
+          <connectable>
+            <startConnected>true</startConnected>
+            <allowGuestControl>true</allowGuestControl>
+            <connected>true</connected>
+          </connectable>
+          <controllerKey>100</controllerKey>
+          <unitNumber>8</unitNumber>
+          <addressType>generated</addressType>
+          <macAddress>00:0c:29:31:65:39</macAddress>
+          <resourceAllocation>
+            <reservation>0</reservation>
+            <share>
+              <shares>50</shares>
+              <level>normal</level>
+            </share>
+            <limit>-1</limit>
+          </resourceAllocation>
+        </device>
+        <device _XMLSchema-instance:type="VirtualPCIPassthrough">
+          <key>207</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>pcipassthrough-207</label>
+            <summary>pcipassthrough-207</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualPCIPassthroughDynamicBackingInfo">
+            <deviceName></deviceName>
+            <allowedDevice>
+              <vendorId>4318</vendorId>
+              <deviceId>8370</deviceId>
+            </allowedDevice>
+            <customLabel>A100-SXM4-80GB</customLabel>
+          </backing>
+        </device>
+        <device _XMLSchema-instance:type="VirtualPCIPassthrough">
+          <key>208</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>pcipassthrough-208</label>
+            <summary>pcipassthrough-208</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualPCIPassthroughDynamicBackingInfo">
+            <deviceName></deviceName>
+            <allowedDevice>
+              <vendorId>4318</vendorId>
+              <deviceId>8370</deviceId>
+            </allowedDevice>
+            <customLabel>A100-SXM4-80GB</customLabel>
+          </backing>
+        </device>
+        <device _XMLSchema-instance:type="VirtualPCIPassthrough">
+          <key>209</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>pcipassthrough-209</label>
+            <summary>pcipassthrough-209</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualPCIPassthroughDynamicBackingInfo">
+            <deviceName></deviceName>
+            <allowedDevice>
+              <vendorId>4318</vendorId>
+              <deviceId>8370</deviceId>
+            </allowedDevice>
+            <customLabel>A100-SXM4-80GB</customLabel>
+          </backing>
+        </device>
+        <device _XMLSchema-instance:type="VirtualPCIPassthrough">
+          <key>210</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>pcipassthrough-210</label>
+            <summary>pcipassthrough-210</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualPCIPassthroughDynamicBackingInfo">
+            <deviceName></deviceName>
+            <allowedDevice>
+              <vendorId>4318</vendorId>
+              <deviceId>8370</deviceId>
+            </allowedDevice>
+            <customLabel>A100-SXM4-80GB</customLabel>
+          </backing>
+        </device>
+      </hardware>
+      <cpuAllocation>
+        <reservation>0</reservation>
+        <expandableReservation>true</expandableReservation>
+        <limit>-1</limit>
+        <shares>
+          <shares>0</shares>
+          <level>normal</level>
+        </shares>
+      </cpuAllocation>
+      <memoryAllocation>
+        <reservation>0</reservation>
+        <expandableReservation>true</expandableReservation>
+        <limit>-1</limit>
+        <shares>
+          <shares>0</shares>
+          <level>normal</level>
+        </shares>
+      </memoryAllocation>
+      <latencySensitivity>
+        <level>normal</level>
+      </latencySensitivity>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>govcsim</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>scsi0:0.ctkEnabled</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>scsi0:1.ctkEnabled</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>ctkEnabled</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>pciPassthru.use64bitMMIO</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>pciPassthru.64bitMMIOSizeGB</key>
+        <value _XMLSchema-instance:type="xsd:string">512</value>
+      </extraConfig>
+      <bootOptions>
+        <enterBIOSSetup>false</enterBIOSSetup>
+        <efiSecureBootEnabled>false</efiSecureBootEnabled>
+        <bootRetryEnabled>false</bootRetryEnabled>
+        <bootRetryDelay>10000</bootRetryDelay>
+      </bootOptions>
+      <changeTrackingEnabled>true</changeTrackingEnabled>
+      <firmware>efi</firmware>
+      <memoryReservationLockedToMax>true</memoryReservationLockedToMax>
+    </val>
+  </propSet>
+  <propSet>
+    <name>layout</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineFileLayout">
+      <configFile>ubu2204-train-pt-01/ubu2204-train-pt-01.nvram</configFile>
+      <logFile>ubu2204-train-pt-01/vmware.log</logFile>
+      <disk>
+        <key>203</key>
+        <diskFile>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01.vmdk</diskFile>
+      </disk>
+      <disk>
+        <key>204</key>
+        <diskFile>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01_1.vmdk</diskFile>
+      </disk>
+    </val>
+  </propSet>
+  <propSet>
+    <name>layoutEx</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineFileLayoutEx">
+      <file>
+        <key>0</key>
+        <name>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01-flat.vmdk</name>
+        <type>diskExtent</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>1</key>
+        <name>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01.nvram</name>
+        <type>nvram</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>2</key>
+        <name>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01.vmdk</name>
+        <type>diskDescriptor</type>
+        <size>218</size>
+        <uniqueSize>218</uniqueSize>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>3</key>
+        <name>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01.vmx</name>
+        <type>config</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>4</key>
+        <name>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01_1-flat.vmdk</name>
+        <type>diskExtent</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>5</key>
+        <name>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01_1.vmdk</name>
+        <type>diskDescriptor</type>
+        <size>219</size>
+        <uniqueSize>219</uniqueSize>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>6</key>
+        <name>[ds-gpu-nvme] ubu2204-train-pt-01/vmware.log</name>
+        <type>log</type>
+        <size>32</size>
+        <uniqueSize>32</uniqueSize>
+        <accessible>true</accessible>
+      </file>
+      <disk>
+        <key>203</key>
+        <chain>
+          <fileKey>0</fileKey>
+          <fileKey>2</fileKey>
+        </chain>
+      </disk>
+      <disk>
+        <key>204</key>
+        <chain>
+          <fileKey>4</fileKey>
+          <fileKey>5</fileKey>
+        </chain>
+      </disk>
+      <timestamp>2026-10-26T13:05:18.707602207-07:00</timestamp>
+    </val>
+  </propSet>
+  <propSet>
+    <name>storage</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineStorageInfo">
+      <perDatastoreUsage>
+        <datastore type="Datastore">datastore-85</datastore>
+        <committed>469</committed>
+        <uncommitted>4612794875435</uncommitted>
+        <unshared>437</unshared>
+      </perDatastoreUsage>
+      <timestamp>2026-10-26T13:05:18.707614577-07:00</timestamp>
+    </val>
+  </propSet>
+  <propSet>
+    <name>environmentBrowser</name>
+    <val type="EnvironmentBrowser" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">envbrowser-49</val>
+  </propSet>
+  <propSet>
+    <name>resourcePool</name>
+    <val type="ResourcePool" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">resgroup-79</val>
+  </propSet>
+  <propSet>
+    <name>runtime</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineRuntimeInfo">
+      <host type="HostSystem">host-69</host>
+      <connectionState>connected</connectionState>
+      <powerState>poweredOn</powerState>
+      <faultToleranceState></faultToleranceState>
+      <toolsInstallerMounted>false</toolsInstallerMounted>
+      <numMksConnections>0</numMksConnections>
+      <recordReplayState></recordReplayState>
+      <onlineStandby>false</onlineStandby>
+      <consolidationNeeded>false</consolidationNeeded>
+    </val>
+  </propSet>
+  <propSet>
+    <name>guest</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="GuestInfo">
+      <toolsStatus>toolsNotInstalled</toolsStatus>
+      <toolsRunningStatus>guestToolsNotRunning</toolsRunningStatus>
+      <toolsVersion>0</toolsVersion>
+      <guestFamily>linuxGuest</guestFamily>
+      <net>
+        <macAddress>00:0c:29:30:65:39</macAddress>
+        <connected>true</connected>
+        <deviceConfigId>205</deviceConfigId>
+      </net>
+      <net>
+        <macAddress>00:0c:29:31:65:39</macAddress>
+        <connected>true</connected>
+        <deviceConfigId>206</deviceConfigId>
+      </net>
+      <guestState></guestState>
+    </val>
+  </propSet>
+  <propSet>
+    <name>summary</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineSummary">
+      <vm type="VirtualMachine">vm-200</vm>
+      <runtime>
+        <host type="HostSystem">host-69</host>
+        <connectionState>connected</connectionState>
+        <powerState>poweredOn</powerState>
+        <faultToleranceState></faultToleranceState>
+        <toolsInstallerMounted>false</toolsInstallerMounted>
+        <bootTime>2026-10-26T13:05:18.713187422-07:00</bootTime>
+        <numMksConnections>0</numMksConnections>
+        <recordReplayState></recordReplayState>
+        <onlineStandby>false</onlineStandby>
+        <consolidationNeeded>false</consolidationNeeded>
+      </runtime>
+      <guest>
+        <guestId>ubuntu64Guest</guestId>
+        <toolsStatus>toolsNotInstalled</toolsStatus>
+      </guest>
+      <config>
+        <name>ubu2204-train-pt-01</name>
+        <template>false</template>
+        <vmPathName>[ds-gpu-nvme] ubu2204-train-pt-01/ubu2204-train-pt-01.vmx</vmPathName>
+        <memorySizeMB>524288</memorySizeMB>
+        <numCpu>64</numCpu>
+        <numEthernetCards>2</numEthernetCards>
+        <numVirtualDisks>2</numVirtualDisks>
+        <uuid>d401c8e0-cf56-5235-abdd-808ef228c0e9</uuid>
+        <instanceUuid>5114f4c9-2e20-5ad3-aae7-85801a12cbde</instanceUuid>
+        <guestId>ubuntu64Guest</guestId>
+        <guestFullName>ubuntu64Guest</guestFullName>
+        <hwVersion>vmx-19</hwVersion>
+      </config>
+      <storage>
+        <committed>469</committed>
+        <uncommitted>4612794875904</uncommitted>
+        <unshared>437</unshared>
+        <timestamp>2026-10-26T13:05:18.707614655-07:00</timestamp>
+      </storage>
+      <quickStats>
+        <guestHeartbeatStatus>gray</guestHeartbeatStatus>
+      </quickStats>
+      <overallStatus>green</overallStatus>
+    </val>
+  </propSet>
+  <propSet>
+    <name>datastore</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="Datastore">datastore-85</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>network</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="DistributedVirtualPortgroup">dvportgroup-96</ManagedObjectReference>
+      <ManagedObjectReference type="DistributedVirtualPortgroup">dvportgroup-99</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>rootSnapshot</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference"></val>
+  </propSet>
+</ObjectContent>

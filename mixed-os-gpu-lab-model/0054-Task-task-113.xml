@@ -1,0 +1,33 @@
+<ObjectContent>
+  <obj type="Task">task-113</obj>
+  <propSet>
+    <name>value</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue"></val>
+  </propSet>
+  <propSet>
+    <name>availableField</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldDef"></val>
+  </propSet>
+  <propSet>
+    <name>info</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="TaskInfo">
+      <key>task-113</key>
+      <task type="Task">task-113</task>
+      <name>CreateVm</name>
+      <descriptionId>Folder.createVm</descriptionId>
+      <entity type="Folder">group-100</entity>
+      <entityName>group-100</entityName>
+      <state>success</state>
+      <cancelled>false</cancelled>
+      <cancelable>false</cancelable>
+      <result type="VirtualMachine" _XMLSchema-instance:type="ManagedObjectReference">vm-114</result>
+      <reason _XMLSchema-instance:type="TaskReasonUser">
+        <userName>vcsim</userName>
+      </reason>
+      <queueTime>2026-10-26T13:05:14.362473384-07:00</queueTime>
+      <startTime>2026-10-26T13:05:14.362490573-07:00</startTime>
+      <completeTime>2026-10-26T13:05:14.364147709-07:00</completeTime>
+      <eventChainId>0</eventChainId>
+    </val>
+  </propSet>
+</ObjectContent>

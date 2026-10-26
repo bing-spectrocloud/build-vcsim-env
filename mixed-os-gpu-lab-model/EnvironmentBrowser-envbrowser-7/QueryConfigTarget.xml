@@ -1,0 +1,153 @@
+<QueryConfigTargetResponse>
+  <returnval>
+    <numCpus>8</numCpus>
+    <numCpuCores>8</numCpuCores>
+    <numNumaNodes>4</numNumaNodes>
+    <smcPresent>false</smcPresent>
+    <datastore>
+      <name>ds-cpu-ssd</name>
+      <datastore>
+        <datastore type="Datastore">datastore-81</datastore>
+        <name>ds-cpu-ssd</name>
+        <url>/tmp/vcsim-lab/ds-cpu-ssd</url>
+        <capacity>4398046511104</capacity>
+        <freeSpace>743029342208</freeSpace>
+        <accessible>true</accessible>
+        <type>OTHER</type>
+        <maintenanceMode>normal</maintenanceMode>
+      </datastore>
+      <capability>
+        <directoryHierarchySupported>true</directoryHierarchySupported>
+        <rawDiskMappingsSupported>false</rawDiskMappingsSupported>
+        <perFileThinProvisioningSupported>true</perFileThinProvisioningSupported>
+        <storageIORMSupported>false</storageIORMSupported>
+        <nativeSnapshotSupported>false</nativeSnapshotSupported>
+        <topLevelDirectoryCreateSupported>true</topLevelDirectoryCreateSupported>
+        <seSparseSupported>false</seSparseSupported>
+      </capability>
+      <maxFileSize>0</maxFileSize>
+      <mode>readWrite</mode>
+      <vStorageSupport>vStorageUnsupported</vStorageSupport>
+    </datastore>
+    <datastore>
+      <name>ds-cpu-capacity</name>
+      <datastore>
+        <datastore type="Datastore">datastore-83</datastore>
+        <name>ds-cpu-capacity</name>
+        <url>/tmp/vcsim-lab/ds-cpu-capacity</url>
+        <capacity>4398046511104</capacity>
+        <freeSpace>1683627180032</freeSpace>
+        <accessible>true</accessible>
+        <type>OTHER</type>
+        <maintenanceMode>normal</maintenanceMode>
+      </datastore>
+      <capability>
+        <directoryHierarchySupported>true</directoryHierarchySupported>
+        <rawDiskMappingsSupported>false</rawDiskMappingsSupported>
+        <perFileThinProvisioningSupported>true</perFileThinProvisioningSupported>
+        <storageIORMSupported>false</storageIORMSupported>
+        <nativeSnapshotSupported>false</nativeSnapshotSupported>
+        <topLevelDirectoryCreateSupported>true</topLevelDirectoryCreateSupported>
+        <seSparseSupported>false</seSparseSupported>
+      </capability>
+      <maxFileSize>0</maxFileSize>
+      <mode>readWrite</mode>
+      <vStorageSupport>vStorageUnsupported</vStorageSupport>
+    </datastore>
+    <datastore>
+      <name>ds-templates</name>
+      <datastore>
+        <datastore type="Datastore">datastore-87</datastore>
+        <name>ds-templates</name>
+        <url>/tmp/vcsim-lab/ds-templates</url>
+        <capacity>7696581394432</capacity>
+        <freeSpace>7460358193152</freeSpace>
+        <accessible>true</accessible>
+        <type>OTHER</type>
+        <maintenanceMode>normal</maintenanceMode>
+      </datastore>
+      <capability>
+        <directoryHierarchySupported>true</directoryHierarchySupported>
+        <rawDiskMappingsSupported>false</rawDiskMappingsSupported>
+        <perFileThinProvisioningSupported>true</perFileThinProvisioningSupported>
+        <storageIORMSupported>false</storageIORMSupported>
+        <nativeSnapshotSupported>false</nativeSnapshotSupported>
+        <topLevelDirectoryCreateSupported>true</topLevelDirectoryCreateSupported>
+        <seSparseSupported>false</seSparseSupported>
+      </capability>
+      <maxFileSize>0</maxFileSize>
+      <mode>readWrite</mode>
+      <vStorageSupport>vStorageUnsupported</vStorageSupport>
+    </datastore>
+    <network>
+      <name>VM Network</name>
+      <network xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="NetworkSummary">
+        <network type="Network">network-6</network>
+        <name>VM Network</name>
+        <accessible>true</accessible>
+        <ipPoolName></ipPoolName>
+      </network>
+    </network>
+    <distributedVirtualPortgroup>
+      <switchName>dvs-lab</switchName>
+      <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+      <portgroupName>dvs-lab-DVUplinks-90</portgroupName>
+      <portgroupKey>dvportgroup-92</portgroupKey>
+      <portgroupType>earlyBinding</portgroupType>
+      <uplinkPortgroup>false</uplinkPortgroup>
+      <portgroup type="DistributedVirtualPortgroup">dvportgroup-92</portgroup>
+      <networkReservationSupported>false</networkReservationSupported>
+    </distributedVirtualPortgroup>
+    <distributedVirtualPortgroup>
+      <switchName>dvs-lab</switchName>
+      <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+      <portgroupName>pg-mgmt</portgroupName>
+      <portgroupKey>dvportgroup-95</portgroupKey>
+      <portgroupType>earlyBinding</portgroupType>
+      <uplinkPortgroup>false</uplinkPortgroup>
+      <portgroup type="DistributedVirtualPortgroup">dvportgroup-95</portgroup>
+      <networkReservationSupported>false</networkReservationSupported>
+    </distributedVirtualPortgroup>
+    <distributedVirtualPortgroup>
+      <switchName>dvs-lab</switchName>
+      <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+      <portgroupName>pg-app</portgroupName>
+      <portgroupKey>dvportgroup-96</portgroupKey>
+      <portgroupType>earlyBinding</portgroupType>
+      <uplinkPortgroup>false</uplinkPortgroup>
+      <portgroup type="DistributedVirtualPortgroup">dvportgroup-96</portgroup>
+      <networkReservationSupported>false</networkReservationSupported>
+    </distributedVirtualPortgroup>
+    <distributedVirtualPortgroup>
+      <switchName>dvs-lab</switchName>
+      <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+      <portgroupName>pg-db</portgroupName>
+      <portgroupKey>dvportgroup-97</portgroupKey>
+      <portgroupType>earlyBinding</portgroupType>
+      <uplinkPortgroup>false</uplinkPortgroup>
+      <portgroup type="DistributedVirtualPortgroup">dvportgroup-97</portgroup>
+      <networkReservationSupported>false</networkReservationSupported>
+    </distributedVirtualPortgroup>
+    <distributedVirtualPortgroup>
+      <switchName>dvs-lab</switchName>
+      <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+      <portgroupName>pg-pxe</portgroupName>
+      <portgroupKey>dvportgroup-98</portgroupKey>
+      <portgroupType>earlyBinding</portgroupType>
+      <uplinkPortgroup>false</uplinkPortgroup>
+      <portgroup type="DistributedVirtualPortgroup">dvportgroup-98</portgroup>
+      <networkReservationSupported>false</networkReservationSupported>
+    </distributedVirtualPortgroup>
+    <distributedVirtualPortgroup>
+      <switchName>dvs-lab</switchName>
+      <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+      <portgroupName>pg-gpu-rdma</portgroupName>
+      <portgroupKey>dvportgroup-99</portgroupKey>
+      <portgroupType>earlyBinding</portgroupType>
+      <uplinkPortgroup>false</uplinkPortgroup>
+      <portgroup type="DistributedVirtualPortgroup">dvportgroup-99</portgroup>
+      <networkReservationSupported>false</networkReservationSupported>
+    </distributedVirtualPortgroup>
+    <maxMemMBOptimalPerf>0</maxMemMBOptimalPerf>
+  </returnval>
+</QueryConfigTargetResponse>

@@ -1,0 +1,187 @@
+<ObjectContent>
+  <obj type="Folder">group-101</obj>
+  <propSet>
+    <name>value</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue"></val>
+  </propSet>
+  <propSet>
+    <name>availableField</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldDef"></val>
+  </propSet>
+  <propSet>
+    <name>parent</name>
+    <val type="Folder" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">group-2</val>
+  </propSet>
+  <propSet>
+    <name>customValue</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue"></val>
+  </propSet>
+  <propSet>
+    <name>overallStatus</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedEntityStatus">green</val>
+  </propSet>
+  <propSet>
+    <name>configStatus</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedEntityStatus">green</val>
+  </propSet>
+  <propSet>
+    <name>configIssue</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfEvent"></val>
+  </propSet>
+  <propSet>
+    <name>effectiveRole</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfInt">
+      <int>-1</int>
+    </val>
+  </propSet>
+  <propSet>
+    <name>permission</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfPermission"></val>
+  </propSet>
+  <propSet>
+    <name>name</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="xsd:string">windows</val>
+  </propSet>
+  <propSet>
+    <name>disabledMethod</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfString"></val>
+  </propSet>
+  <propSet>
+    <name>recentTask</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="Task">task-156</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-159</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-164</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-173</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-177</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-181</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-185</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-189</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>declaredAlarmState</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfAlarmState"></val>
+  </propSet>
+  <propSet>
+    <name>triggeredAlarmState</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfAlarmState"></val>
+  </propSet>
+  <propSet>
+    <name>tag</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfTag"></val>
+  </propSet>
+  <propSet>
+    <name>childType</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfString">
+      <string>VirtualMachine</string>
+      <string>VirtualApp</string>
+      <string>Folder</string>
+    </val>
+  </propSet>
+  <propSet>
+    <name>childEntity</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="VirtualMachine">vm-157</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-160</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-165</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-174</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-178</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-182</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-186</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-190</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>value</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue"></val>
+  </propSet>
+  <propSet>
+    <name>availableField</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldDef"></val>
+  </propSet>
+  <propSet>
+    <name>parent</name>
+    <val type="Folder" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">group-2</val>
+  </propSet>
+  <propSet>
+    <name>customValue</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue"></val>
+  </propSet>
+  <propSet>
+    <name>overallStatus</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedEntityStatus">green</val>
+  </propSet>
+  <propSet>
+    <name>configStatus</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedEntityStatus">green</val>
+  </propSet>
+  <propSet>
+    <name>configIssue</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfEvent"></val>
+  </propSet>
+  <propSet>
+    <name>effectiveRole</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfInt">
+      <int>-1</int>
+    </val>
+  </propSet>
+  <propSet>
+    <name>permission</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfPermission"></val>
+  </propSet>
+  <propSet>
+    <name>name</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="xsd:string">windows</val>
+  </propSet>
+  <propSet>
+    <name>disabledMethod</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfString"></val>
+  </propSet>
+  <propSet>
+    <name>recentTask</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="Task">task-156</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-159</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-164</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-173</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-177</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-181</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-185</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-189</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>declaredAlarmState</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfAlarmState"></val>
+  </propSet>
+  <propSet>
+    <name>triggeredAlarmState</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfAlarmState"></val>
+  </propSet>
+  <propSet>
+    <name>tag</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfTag"></val>
+  </propSet>
+  <propSet>
+    <name>childType</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfString">
+      <string>VirtualMachine</string>
+      <string>VirtualApp</string>
+      <string>Folder</string>
+    </val>
+  </propSet>
+  <propSet>
+    <name>childEntity</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="VirtualMachine">vm-157</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-160</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-165</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-174</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-178</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-182</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-186</ManagedObjectReference>
+      <ManagedObjectReference type="VirtualMachine">vm-190</ManagedObjectReference>
+    </val>
+  </propSet>
+</ObjectContent>

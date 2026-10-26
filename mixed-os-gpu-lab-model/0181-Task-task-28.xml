@@ -1,0 +1,33 @@
+<ObjectContent>
+  <obj type="Task">task-28</obj>
+  <propSet>
+    <name>value</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue"></val>
+  </propSet>
+  <propSet>
+    <name>availableField</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldDef"></val>
+  </propSet>
+  <propSet>
+    <name>info</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="TaskInfo">
+      <key>task-28</key>
+      <task type="Task">task-28</task>
+      <name>AddHost</name>
+      <descriptionId>ClusterComputeResource.addHost</descriptionId>
+      <entity type="ClusterComputeResource">domain-c9</entity>
+      <entityName>domain-c9</entityName>
+      <state>success</state>
+      <cancelled>false</cancelled>
+      <cancelable>false</cancelable>
+      <result type="HostSystem" _XMLSchema-instance:type="ManagedObjectReference">host-36</result>
+      <reason _XMLSchema-instance:type="TaskReasonUser">
+        <userName>vcsim</userName>
+      </reason>
+      <queueTime>2026-10-26T13:05:13.067725284-07:00</queueTime>
+      <startTime>2026-10-26T13:05:13.067779361-07:00</startTime>
+      <completeTime>2026-10-26T13:05:13.072474118-07:00</completeTime>
+      <eventChainId>0</eventChainId>
+    </val>
+  </propSet>
+</ObjectContent>

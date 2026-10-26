@@ -1,0 +1,56 @@
+<ObjectContent>
+  <obj type="CustomFieldsManager">CustomFieldsManager</obj>
+  <propSet>
+    <name>field</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldDef">
+      <CustomFieldDef>
+        <key>0</key>
+        <name>gpu.model</name>
+        <type>HostSystem</type>
+        <managedObjectType>HostSystem</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>1</key>
+        <name>gpu.count</name>
+        <type>HostSystem</type>
+        <managedObjectType>HostSystem</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>2</key>
+        <name>host.role</name>
+        <type>HostSystem</type>
+        <managedObjectType>HostSystem</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>3</key>
+        <name>os.family</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>4</key>
+        <name>boot.profile</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>5</key>
+        <name>cbt.mode</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>6</key>
+        <name>gpu.profile</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>7</key>
+        <name>app.role</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+    </val>
+  </propSet>
+</ObjectContent>

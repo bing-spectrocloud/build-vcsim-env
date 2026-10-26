@@ -1,0 +1,775 @@
+<ObjectContent>
+  <obj type="VirtualMachine">vm-143</obj>
+  <propSet>
+    <name>value</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue">
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>3</key>
+        <value>linux</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>4</key>
+        <value>efi-secure</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>5</key>
+        <value>on</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>7</key>
+        <value>database</value>
+      </CustomFieldValue>
+    </val>
+  </propSet>
+  <propSet>
+    <name>availableField</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldDef">
+      <CustomFieldDef>
+        <key>3</key>
+        <name>os.family</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>4</key>
+        <name>boot.profile</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>5</key>
+        <name>cbt.mode</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>6</key>
+        <name>gpu.profile</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>7</key>
+        <name>app.role</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+    </val>
+  </propSet>
+  <propSet>
+    <name>parent</name>
+    <val type="Folder" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">group-100</val>
+  </propSet>
+  <propSet>
+    <name>customValue</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue">
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>3</key>
+        <value>linux</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>4</key>
+        <value>efi-secure</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>5</key>
+        <value>on</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>7</key>
+        <value>database</value>
+      </CustomFieldValue>
+    </val>
+  </propSet>
+  <propSet>
+    <name>overallStatus</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedEntityStatus">green</val>
+  </propSet>
+  <propSet>
+    <name>configStatus</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedEntityStatus">green</val>
+  </propSet>
+  <propSet>
+    <name>configIssue</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfEvent"></val>
+  </propSet>
+  <propSet>
+    <name>effectiveRole</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfInt">
+      <int>-1</int>
+    </val>
+  </propSet>
+  <propSet>
+    <name>permission</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfPermission"></val>
+  </propSet>
+  <propSet>
+    <name>name</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="xsd:string">rhel9-db-01</val>
+  </propSet>
+  <propSet>
+    <name>disabledMethod</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfString"></val>
+  </propSet>
+  <propSet>
+    <name>recentTask</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="Task">task-144</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-146</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>declaredAlarmState</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfAlarmState"></val>
+  </propSet>
+  <propSet>
+    <name>triggeredAlarmState</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfAlarmState"></val>
+  </propSet>
+  <propSet>
+    <name>tag</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfTag"></val>
+  </propSet>
+  <propSet>
+    <name>capability</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineCapability">
+      <snapshotOperationsSupported>false</snapshotOperationsSupported>
+      <multipleSnapshotsSupported>false</multipleSnapshotsSupported>
+      <snapshotConfigSupported>false</snapshotConfigSupported>
+      <poweredOffSnapshotsSupported>false</poweredOffSnapshotsSupported>
+      <memorySnapshotsSupported>false</memorySnapshotsSupported>
+      <revertToSnapshotSupported>false</revertToSnapshotSupported>
+      <quiescedSnapshotsSupported>false</quiescedSnapshotsSupported>
+      <disableSnapshotsSupported>false</disableSnapshotsSupported>
+      <lockSnapshotsSupported>false</lockSnapshotsSupported>
+      <consolePreferencesSupported>false</consolePreferencesSupported>
+      <cpuFeatureMaskSupported>false</cpuFeatureMaskSupported>
+      <s1AcpiManagementSupported>false</s1AcpiManagementSupported>
+      <settingScreenResolutionSupported>false</settingScreenResolutionSupported>
+      <toolsAutoUpdateSupported>false</toolsAutoUpdateSupported>
+      <vmNpivWwnSupported>false</vmNpivWwnSupported>
+      <npivWwnOnNonRdmVmSupported>false</npivWwnOnNonRdmVmSupported>
+      <vmNpivWwnDisableSupported>false</vmNpivWwnDisableSupported>
+      <vmNpivWwnUpdateSupported>false</vmNpivWwnUpdateSupported>
+      <swapPlacementSupported>false</swapPlacementSupported>
+      <toolsSyncTimeSupported>false</toolsSyncTimeSupported>
+      <virtualMmuUsageSupported>false</virtualMmuUsageSupported>
+      <diskSharesSupported>false</diskSharesSupported>
+      <bootOptionsSupported>false</bootOptionsSupported>
+      <bootRetryOptionsSupported>false</bootRetryOptionsSupported>
+      <settingVideoRamSizeSupported>false</settingVideoRamSizeSupported>
+      <settingDisplayTopologySupported>false</settingDisplayTopologySupported>
+      <recordReplaySupported>false</recordReplaySupported>
+      <changeTrackingSupported>true</changeTrackingSupported>
+      <multipleCoresPerSocketSupported>false</multipleCoresPerSocketSupported>
+      <hostBasedReplicationSupported>false</hostBasedReplicationSupported>
+      <guestAutoLockSupported>false</guestAutoLockSupported>
+      <memoryReservationLockSupported>false</memoryReservationLockSupported>
+      <featureRequirementSupported>false</featureRequirementSupported>
+      <poweredOnMonitorTypeChangeSupported>false</poweredOnMonitorTypeChangeSupported>
+      <seSparseDiskSupported>false</seSparseDiskSupported>
+      <nestedHVSupported>false</nestedHVSupported>
+      <vPMCSupported>false</vPMCSupported>
+    </val>
+  </propSet>
+  <propSet>
+    <name>config</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineConfigInfo">
+      <changeVersion>1793045115840684896</changeVersion>
+      <modified>2026-10-26T13:05:15.840696842-07:00</modified>
+      <name>rhel9-db-01</name>
+      <guestFullName>rhel9_64Guest</guestFullName>
+      <version>vmx-20</version>
+      <uuid>346b2ba7-34a4-5c8d-ad52-40df2a911b32</uuid>
+      <createDate>2026-10-26T13:05:15.840136985-07:00</createDate>
+      <instanceUuid>e055417b-8ad4-5038-be5d-ca5e0851293b</instanceUuid>
+      <template>false</template>
+      <guestId>rhel9_64Guest</guestId>
+      <alternateGuestName></alternateGuestName>
+      <annotation>profile=mixed-os-gpu-lab os=rhel-9 boot=efi-secure cbt=on</annotation>
+      <files>
+        <vmPathName>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01.vmx</vmPathName>
+        <snapshotDirectory>[ds-cpu-ssd] rhel9-db-01</snapshotDirectory>
+        <suspendDirectory>[ds-cpu-ssd] rhel9-db-01</suspendDirectory>
+        <logDirectory>[ds-cpu-ssd] rhel9-db-01</logDirectory>
+      </files>
+      <tools></tools>
+      <flags></flags>
+      <defaultPowerOps></defaultPowerOps>
+      <hardware>
+        <numCPU>8</numCPU>
+        <numCoresPerSocket>8</numCoresPerSocket>
+        <memoryMB>65536</memoryMB>
+        <device _XMLSchema-instance:type="VirtualPCIController">
+          <key>100</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>PCI controller 0</label>
+            <summary>PCI controller 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+          <device>500</device>
+          <device>12000</device>
+          <device>206</device>
+          <device>207</device>
+        </device>
+        <device _XMLSchema-instance:type="VirtualIDEController">
+          <key>200</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>IDE 0</label>
+            <summary>IDE 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualIDEController">
+          <key>201</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>IDE 1</label>
+            <summary>IDE 1</summary>
+          </deviceInfo>
+          <busNumber>1</busNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualPS2Controller">
+          <key>300</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>PS2 controller 0</label>
+            <summary>PS2 controller 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+          <device>600</device>
+          <device>700</device>
+        </device>
+        <device _XMLSchema-instance:type="VirtualSIOController">
+          <key>400</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>SIO controller 0</label>
+            <summary>SIO controller 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualKeyboard">
+          <key>600</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>Keyboard </label>
+            <summary>Keyboard</summary>
+          </deviceInfo>
+          <controllerKey>300</controllerKey>
+          <unitNumber>0</unitNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualPointingDevice">
+          <key>700</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>Pointing device</label>
+            <summary>Pointing device; Device</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualPointingDeviceDeviceBackingInfo">
+            <deviceName></deviceName>
+            <useAutoDetect>false</useAutoDetect>
+            <hostPointingDevice>autodetect</hostPointingDevice>
+          </backing>
+          <controllerKey>300</controllerKey>
+          <unitNumber>1</unitNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualMachineVideoCard">
+          <key>500</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>Video card </label>
+            <summary>Video card</summary>
+          </deviceInfo>
+          <controllerKey>100</controllerKey>
+          <unitNumber>0</unitNumber>
+          <videoRamSizeInKB>4096</videoRamSizeInKB>
+          <numDisplays>1</numDisplays>
+          <useAutoDetect>false</useAutoDetect>
+          <enable3DSupport>false</enable3DSupport>
+          <use3dRenderer>automatic</use3dRenderer>
+          <graphicsMemorySizeInKB>262144</graphicsMemorySizeInKB>
+        </device>
+        <device _XMLSchema-instance:type="VirtualMachineVMCIDevice">
+          <key>12000</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>VMCI device</label>
+            <summary>Device on the virtual machine PCI bus that provides support for the virtual machine communication interface</summary>
+          </deviceInfo>
+          <controllerKey>100</controllerKey>
+          <unitNumber>17</unitNumber>
+          <id>-1</id>
+          <allowUnrestrictedCommunication>false</allowUnrestrictedCommunication>
+          <filterEnable>true</filterEnable>
+        </device>
+        <device _XMLSchema-instance:type="ParaVirtualSCSIController">
+          <key>202</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>pvscsi-202</label>
+            <summary>pvscsi-202</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+          <sharedBus>noSharing</sharedBus>
+        </device>
+        <device _XMLSchema-instance:type="VirtualDisk">
+          <key>203</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>disk-202-0</label>
+            <summary>83,886,080 KB</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualDiskFlatVer2BackingInfo">
+            <fileName>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01.vmdk</fileName>
+            <datastore type="Datastore">datastore-81</datastore>
+            <diskMode>persistent</diskMode>
+            <split>false</split>
+            <writeThrough>false</writeThrough>
+            <thinProvisioned>true</thinProvisioned>
+            <eagerlyScrub>false</eagerlyScrub>
+            <uuid>61e5acb4-2338-52f7-aadc-caaa735f9732</uuid>
+            <digestEnabled>false</digestEnabled>
+          </backing>
+          <controllerKey>202</controllerKey>
+          <unitNumber>0</unitNumber>
+          <capacityInKB>83886080</capacityInKB>
+          <capacityInBytes>85899345920</capacityInBytes>
+        </device>
+        <device _XMLSchema-instance:type="VirtualDisk">
+          <key>204</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>disk-202-1</label>
+            <summary>1,073,741,824 KB</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualDiskFlatVer2BackingInfo">
+            <fileName>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01_1.vmdk</fileName>
+            <datastore type="Datastore">datastore-81</datastore>
+            <diskMode>persistent</diskMode>
+            <split>false</split>
+            <writeThrough>false</writeThrough>
+            <thinProvisioned>false</thinProvisioned>
+            <eagerlyScrub>true</eagerlyScrub>
+            <uuid>9002100f-a2bd-5e46-a252-05ae936fe40c</uuid>
+            <digestEnabled>false</digestEnabled>
+          </backing>
+          <controllerKey>202</controllerKey>
+          <unitNumber>1</unitNumber>
+          <capacityInKB>1073741824</capacityInKB>
+          <capacityInBytes>1099511627776</capacityInBytes>
+        </device>
+        <device _XMLSchema-instance:type="VirtualDisk">
+          <key>205</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>disk-202-2</label>
+            <summary>268,435,456 KB</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualDiskFlatVer2BackingInfo">
+            <fileName>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01_2.vmdk</fileName>
+            <datastore type="Datastore">datastore-81</datastore>
+            <diskMode>persistent</diskMode>
+            <split>false</split>
+            <writeThrough>false</writeThrough>
+            <thinProvisioned>false</thinProvisioned>
+            <eagerlyScrub>true</eagerlyScrub>
+            <uuid>d9652bed-4258-5d9b-81ce-fde7801ec74a</uuid>
+            <digestEnabled>false</digestEnabled>
+          </backing>
+          <controllerKey>202</controllerKey>
+          <unitNumber>2</unitNumber>
+          <capacityInKB>268435456</capacityInKB>
+          <capacityInBytes>274877906944</capacityInBytes>
+        </device>
+        <device _XMLSchema-instance:type="VirtualVmxnet3">
+          <key>206</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>ethernet--7</label>
+            <summary>DVSwitch: 839580d5-e197-537e-aa9d-8a74fb4a5f30</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualEthernetCardDistributedVirtualPortBackingInfo">
+            <port>
+              <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+              <portgroupKey>dvportgroup-97</portgroupKey>
+            </port>
+          </backing>
+          <connectable>
+            <startConnected>true</startConnected>
+            <allowGuestControl>true</allowGuestControl>
+            <connected>true</connected>
+          </connectable>
+          <controllerKey>100</controllerKey>
+          <unitNumber>7</unitNumber>
+          <addressType>generated</addressType>
+          <macAddress>00:0c:29:62:33:32</macAddress>
+          <resourceAllocation>
+            <reservation>0</reservation>
+            <share>
+              <shares>50</shares>
+              <level>normal</level>
+            </share>
+            <limit>-1</limit>
+          </resourceAllocation>
+        </device>
+        <device _XMLSchema-instance:type="VirtualVmxnet3">
+          <key>207</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>ethernet--7</label>
+            <summary>DVSwitch: 839580d5-e197-537e-aa9d-8a74fb4a5f30</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualEthernetCardDistributedVirtualPortBackingInfo">
+            <port>
+              <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+              <portgroupKey>dvportgroup-95</portgroupKey>
+            </port>
+          </backing>
+          <connectable>
+            <startConnected>true</startConnected>
+            <allowGuestControl>true</allowGuestControl>
+            <connected>true</connected>
+          </connectable>
+          <controllerKey>100</controllerKey>
+          <unitNumber>8</unitNumber>
+          <addressType>generated</addressType>
+          <macAddress>00:0c:29:63:33:32</macAddress>
+          <resourceAllocation>
+            <reservation>0</reservation>
+            <share>
+              <shares>50</shares>
+              <level>normal</level>
+            </share>
+            <limit>-1</limit>
+          </resourceAllocation>
+        </device>
+      </hardware>
+      <cpuAllocation>
+        <reservation>0</reservation>
+        <expandableReservation>true</expandableReservation>
+        <limit>-1</limit>
+        <shares>
+          <shares>0</shares>
+          <level>normal</level>
+        </shares>
+      </cpuAllocation>
+      <memoryAllocation>
+        <reservation>0</reservation>
+        <expandableReservation>true</expandableReservation>
+        <limit>-1</limit>
+        <shares>
+          <shares>0</shares>
+          <level>normal</level>
+        </shares>
+      </memoryAllocation>
+      <latencySensitivity>
+        <level>normal</level>
+      </latencySensitivity>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>govcsim</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>scsi0:0.ctkEnabled</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>scsi0:1.ctkEnabled</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>scsi0:2.ctkEnabled</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>ctkEnabled</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <bootOptions>
+        <enterBIOSSetup>false</enterBIOSSetup>
+        <efiSecureBootEnabled>true</efiSecureBootEnabled>
+        <bootRetryEnabled>false</bootRetryEnabled>
+        <bootRetryDelay>10000</bootRetryDelay>
+      </bootOptions>
+      <changeTrackingEnabled>true</changeTrackingEnabled>
+      <firmware>efi</firmware>
+    </val>
+  </propSet>
+  <propSet>
+    <name>layout</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineFileLayout">
+      <configFile>rhel9-db-01/rhel9-db-01.nvram</configFile>
+      <logFile>rhel9-db-01/vmware.log</logFile>
+      <disk>
+        <key>203</key>
+        <diskFile>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01.vmdk</diskFile>
+      </disk>
+      <disk>
+        <key>204</key>
+        <diskFile>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01_1.vmdk</diskFile>
+      </disk>
+      <disk>
+        <key>205</key>
+        <diskFile>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01_2.vmdk</diskFile>
+      </disk>
+      <snapshot>
+        <key type="VirtualMachineSnapshot">snapshot-145</key>
+        <snapshotFile>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01.vmdk</snapshotFile>
+        <snapshotFile>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01_1.vmdk</snapshotFile>
+        <snapshotFile>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01_2.vmdk</snapshotFile>
+        <snapshotFile>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01-Snapshot1.vmsn</snapshotFile>
+      </snapshot>
+    </val>
+  </propSet>
+  <propSet>
+    <name>layoutEx</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineFileLayoutEx">
+      <file>
+        <key>0</key>
+        <name>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01-flat.vmdk</name>
+        <type>diskExtent</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>1</key>
+        <name>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01.nvram</name>
+        <type>nvram</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>2</key>
+        <name>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01.vmdk</name>
+        <type>diskDescriptor</type>
+        <size>209</size>
+        <uniqueSize>209</uniqueSize>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>3</key>
+        <name>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01.vmx</name>
+        <type>config</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>4</key>
+        <name>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01_1-flat.vmdk</name>
+        <type>diskExtent</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>5</key>
+        <name>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01_1.vmdk</name>
+        <type>diskDescriptor</type>
+        <size>211</size>
+        <uniqueSize>211</uniqueSize>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>6</key>
+        <name>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01_2-flat.vmdk</name>
+        <type>diskExtent</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>7</key>
+        <name>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01_2.vmdk</name>
+        <type>diskDescriptor</type>
+        <size>212</size>
+        <uniqueSize>212</uniqueSize>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>8</key>
+        <name>[ds-cpu-ssd] rhel9-db-01/vmware.log</name>
+        <type>log</type>
+        <size>32</size>
+        <uniqueSize>32</uniqueSize>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>9</key>
+        <name>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01-Snapshot1.vmsn</name>
+        <type>snapshotData</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <disk>
+        <key>203</key>
+        <chain>
+          <fileKey>0</fileKey>
+          <fileKey>2</fileKey>
+        </chain>
+      </disk>
+      <disk>
+        <key>204</key>
+        <chain>
+          <fileKey>4</fileKey>
+          <fileKey>5</fileKey>
+        </chain>
+      </disk>
+      <disk>
+        <key>205</key>
+        <chain>
+          <fileKey>6</fileKey>
+          <fileKey>7</fileKey>
+        </chain>
+      </disk>
+      <snapshot>
+        <key type="VirtualMachineSnapshot">snapshot-145</key>
+        <dataKey>9</dataKey>
+        <memoryKey>-1</memoryKey>
+        <disk>
+          <key>203</key>
+          <chain>
+            <fileKey>0</fileKey>
+            <fileKey>2</fileKey>
+          </chain>
+        </disk>
+        <disk>
+          <key>204</key>
+          <chain>
+            <fileKey>4</fileKey>
+            <fileKey>5</fileKey>
+          </chain>
+        </disk>
+        <disk>
+          <key>205</key>
+          <chain>
+            <fileKey>6</fileKey>
+            <fileKey>7</fileKey>
+          </chain>
+        </disk>
+      </snapshot>
+      <timestamp>2026-10-26T13:05:15.947655449-07:00</timestamp>
+    </val>
+  </propSet>
+  <propSet>
+    <name>storage</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineStorageInfo">
+      <perDatastoreUsage>
+        <datastore type="Datastore">datastore-81</datastore>
+        <committed>664</committed>
+        <uncommitted>1460288879976</uncommitted>
+        <unshared>632</unshared>
+      </perDatastoreUsage>
+      <timestamp>2026-10-26T13:05:15.947662211-07:00</timestamp>
+    </val>
+  </propSet>
+  <propSet>
+    <name>environmentBrowser</name>
+    <val type="EnvironmentBrowser" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">envbrowser-7</val>
+  </propSet>
+  <propSet>
+    <name>resourcePool</name>
+    <val type="ResourcePool" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">resgroup-47</val>
+  </propSet>
+  <propSet>
+    <name>runtime</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineRuntimeInfo">
+      <host type="HostSystem">host-27</host>
+      <connectionState>connected</connectionState>
+      <powerState>poweredOn</powerState>
+      <faultToleranceState></faultToleranceState>
+      <toolsInstallerMounted>false</toolsInstallerMounted>
+      <numMksConnections>0</numMksConnections>
+      <recordReplayState></recordReplayState>
+      <onlineStandby>false</onlineStandby>
+      <consolidationNeeded>false</consolidationNeeded>
+    </val>
+  </propSet>
+  <propSet>
+    <name>guest</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="GuestInfo">
+      <toolsStatus>toolsNotInstalled</toolsStatus>
+      <toolsRunningStatus>guestToolsNotRunning</toolsRunningStatus>
+      <toolsVersion>0</toolsVersion>
+      <guestFamily>linuxGuest</guestFamily>
+      <net>
+        <macAddress>00:0c:29:62:33:32</macAddress>
+        <connected>true</connected>
+        <deviceConfigId>206</deviceConfigId>
+      </net>
+      <net>
+        <macAddress>00:0c:29:63:33:32</macAddress>
+        <connected>true</connected>
+        <deviceConfigId>207</deviceConfigId>
+      </net>
+      <guestState></guestState>
+    </val>
+  </propSet>
+  <propSet>
+    <name>summary</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineSummary">
+      <vm type="VirtualMachine">vm-143</vm>
+      <runtime>
+        <host type="HostSystem">host-27</host>
+        <connectionState>connected</connectionState>
+        <powerState>poweredOn</powerState>
+        <faultToleranceState></faultToleranceState>
+        <toolsInstallerMounted>false</toolsInstallerMounted>
+        <bootTime>2026-10-26T13:05:16.051527493-07:00</bootTime>
+        <numMksConnections>0</numMksConnections>
+        <recordReplayState></recordReplayState>
+        <onlineStandby>false</onlineStandby>
+        <consolidationNeeded>false</consolidationNeeded>
+      </runtime>
+      <guest>
+        <guestId>rhel9_64Guest</guestId>
+        <toolsStatus>toolsNotInstalled</toolsStatus>
+      </guest>
+      <config>
+        <name>rhel9-db-01</name>
+        <template>false</template>
+        <vmPathName>[ds-cpu-ssd] rhel9-db-01/rhel9-db-01.vmx</vmPathName>
+        <memorySizeMB>65536</memorySizeMB>
+        <numCpu>8</numCpu>
+        <numEthernetCards>2</numEthernetCards>
+        <numVirtualDisks>3</numVirtualDisks>
+        <uuid>346b2ba7-34a4-5c8d-ad52-40df2a911b32</uuid>
+        <instanceUuid>e055417b-8ad4-5038-be5d-ca5e0851293b</instanceUuid>
+        <guestId>rhel9_64Guest</guestId>
+        <guestFullName>rhel9_64Guest</guestFullName>
+        <hwVersion>vmx-20</hwVersion>
+      </config>
+      <storage>
+        <committed>664</committed>
+        <uncommitted>1460288880640</uncommitted>
+        <unshared>632</unshared>
+        <timestamp>2026-10-26T13:05:15.947662253-07:00</timestamp>
+      </storage>
+      <quickStats>
+        <guestHeartbeatStatus>gray</guestHeartbeatStatus>
+      </quickStats>
+      <overallStatus>green</overallStatus>
+    </val>
+  </propSet>
+  <propSet>
+    <name>datastore</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="Datastore">datastore-81</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>network</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="DistributedVirtualPortgroup">dvportgroup-97</ManagedObjectReference>
+      <ManagedObjectReference type="DistributedVirtualPortgroup">dvportgroup-95</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>snapshot</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineSnapshotInfo">
+      <currentSnapshot type="VirtualMachineSnapshot">snapshot-145</currentSnapshot>
+      <rootSnapshotList>
+        <snapshot type="VirtualMachineSnapshot">snapshot-145</snapshot>
+        <vm type="VirtualMachine">vm-143</vm>
+        <name>nightly</name>
+        <description>nightly (vcsim profile)</description>
+        <id>1</id>
+        <createTime>2026-10-26T13:05:15.947561219-07:00</createTime>
+        <state>poweredOff</state>
+        <quiesced>false</quiesced>
+        <replaySupported>false</replaySupported>
+      </rootSnapshotList>
+    </val>
+  </propSet>
+  <propSet>
+    <name>rootSnapshot</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="VirtualMachineSnapshot">snapshot-145</ManagedObjectReference>
+    </val>
+  </propSet>
+</ObjectContent>

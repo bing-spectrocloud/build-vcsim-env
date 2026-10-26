@@ -1,0 +1,766 @@
+<ObjectContent>
+  <obj type="VirtualMachine">vm-165</obj>
+  <propSet>
+    <name>value</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue">
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>3</key>
+        <value>windows</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>4</key>
+        <value>efi-secure</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>5</key>
+        <value>on</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>7</key>
+        <value>file-server</value>
+      </CustomFieldValue>
+    </val>
+  </propSet>
+  <propSet>
+    <name>availableField</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldDef">
+      <CustomFieldDef>
+        <key>3</key>
+        <name>os.family</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>4</key>
+        <name>boot.profile</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>5</key>
+        <name>cbt.mode</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>6</key>
+        <name>gpu.profile</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+      <CustomFieldDef>
+        <key>7</key>
+        <name>app.role</name>
+        <type>VirtualMachine</type>
+        <managedObjectType>VirtualMachine</managedObjectType>
+      </CustomFieldDef>
+    </val>
+  </propSet>
+  <propSet>
+    <name>parent</name>
+    <val type="Folder" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">group-101</val>
+  </propSet>
+  <propSet>
+    <name>customValue</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfCustomFieldValue">
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>3</key>
+        <value>windows</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>4</key>
+        <value>efi-secure</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>5</key>
+        <value>on</value>
+      </CustomFieldValue>
+      <CustomFieldValue _XMLSchema-instance:type="CustomFieldStringValue">
+        <key>7</key>
+        <value>file-server</value>
+      </CustomFieldValue>
+    </val>
+  </propSet>
+  <propSet>
+    <name>overallStatus</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedEntityStatus">green</val>
+  </propSet>
+  <propSet>
+    <name>configStatus</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedEntityStatus">green</val>
+  </propSet>
+  <propSet>
+    <name>configIssue</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfEvent"></val>
+  </propSet>
+  <propSet>
+    <name>effectiveRole</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfInt">
+      <int>-1</int>
+    </val>
+  </propSet>
+  <propSet>
+    <name>permission</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfPermission"></val>
+  </propSet>
+  <propSet>
+    <name>name</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="xsd:string">win2022-file-01</val>
+  </propSet>
+  <propSet>
+    <name>disabledMethod</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfString"></val>
+  </propSet>
+  <propSet>
+    <name>recentTask</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="Task">task-166</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-168</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-170</ManagedObjectReference>
+      <ManagedObjectReference type="Task">task-172</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>declaredAlarmState</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfAlarmState"></val>
+  </propSet>
+  <propSet>
+    <name>triggeredAlarmState</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfAlarmState"></val>
+  </propSet>
+  <propSet>
+    <name>tag</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfTag"></val>
+  </propSet>
+  <propSet>
+    <name>capability</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineCapability">
+      <snapshotOperationsSupported>false</snapshotOperationsSupported>
+      <multipleSnapshotsSupported>false</multipleSnapshotsSupported>
+      <snapshotConfigSupported>false</snapshotConfigSupported>
+      <poweredOffSnapshotsSupported>false</poweredOffSnapshotsSupported>
+      <memorySnapshotsSupported>false</memorySnapshotsSupported>
+      <revertToSnapshotSupported>false</revertToSnapshotSupported>
+      <quiescedSnapshotsSupported>false</quiescedSnapshotsSupported>
+      <disableSnapshotsSupported>false</disableSnapshotsSupported>
+      <lockSnapshotsSupported>false</lockSnapshotsSupported>
+      <consolePreferencesSupported>false</consolePreferencesSupported>
+      <cpuFeatureMaskSupported>false</cpuFeatureMaskSupported>
+      <s1AcpiManagementSupported>false</s1AcpiManagementSupported>
+      <settingScreenResolutionSupported>false</settingScreenResolutionSupported>
+      <toolsAutoUpdateSupported>false</toolsAutoUpdateSupported>
+      <vmNpivWwnSupported>false</vmNpivWwnSupported>
+      <npivWwnOnNonRdmVmSupported>false</npivWwnOnNonRdmVmSupported>
+      <vmNpivWwnDisableSupported>false</vmNpivWwnDisableSupported>
+      <vmNpivWwnUpdateSupported>false</vmNpivWwnUpdateSupported>
+      <swapPlacementSupported>false</swapPlacementSupported>
+      <toolsSyncTimeSupported>false</toolsSyncTimeSupported>
+      <virtualMmuUsageSupported>false</virtualMmuUsageSupported>
+      <diskSharesSupported>false</diskSharesSupported>
+      <bootOptionsSupported>false</bootOptionsSupported>
+      <bootRetryOptionsSupported>false</bootRetryOptionsSupported>
+      <settingVideoRamSizeSupported>false</settingVideoRamSizeSupported>
+      <settingDisplayTopologySupported>false</settingDisplayTopologySupported>
+      <recordReplaySupported>false</recordReplaySupported>
+      <changeTrackingSupported>true</changeTrackingSupported>
+      <multipleCoresPerSocketSupported>false</multipleCoresPerSocketSupported>
+      <hostBasedReplicationSupported>false</hostBasedReplicationSupported>
+      <guestAutoLockSupported>false</guestAutoLockSupported>
+      <memoryReservationLockSupported>false</memoryReservationLockSupported>
+      <featureRequirementSupported>false</featureRequirementSupported>
+      <poweredOnMonitorTypeChangeSupported>false</poweredOnMonitorTypeChangeSupported>
+      <seSparseDiskSupported>false</seSparseDiskSupported>
+      <nestedHVSupported>false</nestedHVSupported>
+      <vPMCSupported>false</vPMCSupported>
+    </val>
+  </propSet>
+  <propSet>
+    <name>config</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineConfigInfo">
+      <changeVersion>1793045116944730766</changeVersion>
+      <modified>2026-10-26T13:05:16.944747627-07:00</modified>
+      <name>win2022-file-01</name>
+      <guestFullName>windows2019srvNext_64Guest</guestFullName>
+      <version>vmx-19</version>
+      <uuid>e75a7a75-e062-5e20-9f37-97a297840a1d</uuid>
+      <createDate>2026-10-26T13:05:16.944198223-07:00</createDate>
+      <instanceUuid>068d00fd-2abb-5725-82ff-b63dfbd63e93</instanceUuid>
+      <template>false</template>
+      <guestId>windows2019srvNext_64Guest</guestId>
+      <alternateGuestName></alternateGuestName>
+      <annotation>profile=mixed-os-gpu-lab os=win-2022 boot=efi-secure cbt=on</annotation>
+      <files>
+        <vmPathName>[ds-cpu-capacity] win2022-file-01/win2022-file-01.vmx</vmPathName>
+        <snapshotDirectory>[ds-cpu-capacity] win2022-file-01</snapshotDirectory>
+        <suspendDirectory>[ds-cpu-capacity] win2022-file-01</suspendDirectory>
+        <logDirectory>[ds-cpu-capacity] win2022-file-01</logDirectory>
+      </files>
+      <tools></tools>
+      <flags></flags>
+      <defaultPowerOps></defaultPowerOps>
+      <hardware>
+        <numCPU>2</numCPU>
+        <numCoresPerSocket>1</numCoresPerSocket>
+        <memoryMB>16384</memoryMB>
+        <device _XMLSchema-instance:type="VirtualPCIController">
+          <key>100</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>PCI controller 0</label>
+            <summary>PCI controller 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+          <device>500</device>
+          <device>12000</device>
+          <device>205</device>
+        </device>
+        <device _XMLSchema-instance:type="VirtualIDEController">
+          <key>200</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>IDE 0</label>
+            <summary>IDE 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualIDEController">
+          <key>201</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>IDE 1</label>
+            <summary>IDE 1</summary>
+          </deviceInfo>
+          <busNumber>1</busNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualPS2Controller">
+          <key>300</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>PS2 controller 0</label>
+            <summary>PS2 controller 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+          <device>600</device>
+          <device>700</device>
+        </device>
+        <device _XMLSchema-instance:type="VirtualSIOController">
+          <key>400</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>SIO controller 0</label>
+            <summary>SIO controller 0</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualKeyboard">
+          <key>600</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>Keyboard </label>
+            <summary>Keyboard</summary>
+          </deviceInfo>
+          <controllerKey>300</controllerKey>
+          <unitNumber>0</unitNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualPointingDevice">
+          <key>700</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>Pointing device</label>
+            <summary>Pointing device; Device</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualPointingDeviceDeviceBackingInfo">
+            <deviceName></deviceName>
+            <useAutoDetect>false</useAutoDetect>
+            <hostPointingDevice>autodetect</hostPointingDevice>
+          </backing>
+          <controllerKey>300</controllerKey>
+          <unitNumber>1</unitNumber>
+        </device>
+        <device _XMLSchema-instance:type="VirtualMachineVideoCard">
+          <key>500</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>Video card </label>
+            <summary>Video card</summary>
+          </deviceInfo>
+          <controllerKey>100</controllerKey>
+          <unitNumber>0</unitNumber>
+          <videoRamSizeInKB>4096</videoRamSizeInKB>
+          <numDisplays>1</numDisplays>
+          <useAutoDetect>false</useAutoDetect>
+          <enable3DSupport>false</enable3DSupport>
+          <use3dRenderer>automatic</use3dRenderer>
+          <graphicsMemorySizeInKB>262144</graphicsMemorySizeInKB>
+        </device>
+        <device _XMLSchema-instance:type="VirtualMachineVMCIDevice">
+          <key>12000</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>VMCI device</label>
+            <summary>Device on the virtual machine PCI bus that provides support for the virtual machine communication interface</summary>
+          </deviceInfo>
+          <controllerKey>100</controllerKey>
+          <unitNumber>17</unitNumber>
+          <id>-1</id>
+          <allowUnrestrictedCommunication>false</allowUnrestrictedCommunication>
+          <filterEnable>true</filterEnable>
+        </device>
+        <device _XMLSchema-instance:type="ParaVirtualSCSIController">
+          <key>202</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>pvscsi-202</label>
+            <summary>pvscsi-202</summary>
+          </deviceInfo>
+          <busNumber>0</busNumber>
+          <sharedBus>noSharing</sharedBus>
+        </device>
+        <device _XMLSchema-instance:type="VirtualDisk">
+          <key>203</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>disk-202-0</label>
+            <summary>104,857,600 KB</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualDiskFlatVer2BackingInfo">
+            <fileName>[ds-cpu-capacity] win2022-file-01/win2022-file-01.vmdk</fileName>
+            <datastore type="Datastore">datastore-83</datastore>
+            <diskMode>persistent</diskMode>
+            <split>false</split>
+            <writeThrough>false</writeThrough>
+            <thinProvisioned>true</thinProvisioned>
+            <eagerlyScrub>false</eagerlyScrub>
+            <uuid>a8d70e24-433c-514f-904d-9707d22c661c</uuid>
+            <digestEnabled>false</digestEnabled>
+          </backing>
+          <controllerKey>202</controllerKey>
+          <unitNumber>0</unitNumber>
+          <capacityInKB>104857600</capacityInKB>
+          <capacityInBytes>107374182400</capacityInBytes>
+        </device>
+        <device _XMLSchema-instance:type="VirtualDisk">
+          <key>204</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>disk-202-1</label>
+            <summary>2,147,483,648 KB</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualDiskFlatVer2BackingInfo">
+            <fileName>[ds-cpu-capacity] win2022-file-01/win2022-file-01_1.vmdk</fileName>
+            <datastore type="Datastore">datastore-83</datastore>
+            <diskMode>persistent</diskMode>
+            <split>false</split>
+            <writeThrough>false</writeThrough>
+            <thinProvisioned>true</thinProvisioned>
+            <eagerlyScrub>false</eagerlyScrub>
+            <uuid>da26fb17-de13-5dcd-a83f-51547e97253d</uuid>
+            <digestEnabled>false</digestEnabled>
+          </backing>
+          <controllerKey>202</controllerKey>
+          <unitNumber>1</unitNumber>
+          <capacityInKB>2147483648</capacityInKB>
+          <capacityInBytes>2199023255552</capacityInBytes>
+        </device>
+        <device _XMLSchema-instance:type="VirtualVmxnet3">
+          <key>205</key>
+          <deviceInfo _XMLSchema-instance:type="Description">
+            <label>ethernet--7</label>
+            <summary>DVSwitch: 839580d5-e197-537e-aa9d-8a74fb4a5f30</summary>
+          </deviceInfo>
+          <backing _XMLSchema-instance:type="VirtualEthernetCardDistributedVirtualPortBackingInfo">
+            <port>
+              <switchUuid>839580d5-e197-537e-aa9d-8a74fb4a5f30</switchUuid>
+              <portgroupKey>dvportgroup-96</portgroupKey>
+            </port>
+          </backing>
+          <connectable>
+            <startConnected>true</startConnected>
+            <allowGuestControl>true</allowGuestControl>
+            <connected>true</connected>
+          </connectable>
+          <controllerKey>100</controllerKey>
+          <unitNumber>7</unitNumber>
+          <addressType>generated</addressType>
+          <macAddress>00:0c:29:61:31:64</macAddress>
+          <resourceAllocation>
+            <reservation>0</reservation>
+            <share>
+              <shares>50</shares>
+              <level>normal</level>
+            </share>
+            <limit>-1</limit>
+          </resourceAllocation>
+        </device>
+      </hardware>
+      <cpuAllocation>
+        <reservation>0</reservation>
+        <expandableReservation>true</expandableReservation>
+        <limit>-1</limit>
+        <shares>
+          <shares>0</shares>
+          <level>normal</level>
+        </shares>
+      </cpuAllocation>
+      <memoryAllocation>
+        <reservation>0</reservation>
+        <expandableReservation>true</expandableReservation>
+        <limit>-1</limit>
+        <shares>
+          <shares>0</shares>
+          <level>normal</level>
+        </shares>
+      </memoryAllocation>
+      <latencySensitivity>
+        <level>normal</level>
+      </latencySensitivity>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>govcsim</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>scsi0:0.ctkEnabled</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>scsi0:1.ctkEnabled</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <extraConfig _XMLSchema-instance:type="OptionValue">
+        <key>ctkEnabled</key>
+        <value _XMLSchema-instance:type="xsd:string">TRUE</value>
+      </extraConfig>
+      <bootOptions>
+        <enterBIOSSetup>false</enterBIOSSetup>
+        <efiSecureBootEnabled>true</efiSecureBootEnabled>
+        <bootRetryEnabled>false</bootRetryEnabled>
+        <bootRetryDelay>10000</bootRetryDelay>
+      </bootOptions>
+      <changeTrackingEnabled>true</changeTrackingEnabled>
+      <firmware>efi</firmware>
+    </val>
+  </propSet>
+  <propSet>
+    <name>layout</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineFileLayout">
+      <configFile>win2022-file-01/win2022-file-01.nvram</configFile>
+      <logFile>win2022-file-01/vmware.log</logFile>
+      <disk>
+        <key>203</key>
+        <diskFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01.vmdk</diskFile>
+      </disk>
+      <disk>
+        <key>204</key>
+        <diskFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01_1.vmdk</diskFile>
+      </disk>
+      <snapshot>
+        <key type="VirtualMachineSnapshot">snapshot-167</key>
+        <snapshotFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01.vmdk</snapshotFile>
+        <snapshotFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01_1.vmdk</snapshotFile>
+        <snapshotFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01-Snapshot1.vmsn</snapshotFile>
+      </snapshot>
+      <snapshot>
+        <key type="VirtualMachineSnapshot">snapshot-169</key>
+        <snapshotFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01.vmdk</snapshotFile>
+        <snapshotFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01_1.vmdk</snapshotFile>
+        <snapshotFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01-Snapshot2.vmsn</snapshotFile>
+      </snapshot>
+      <snapshot>
+        <key type="VirtualMachineSnapshot">snapshot-171</key>
+        <snapshotFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01.vmdk</snapshotFile>
+        <snapshotFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01_1.vmdk</snapshotFile>
+        <snapshotFile>[ds-cpu-capacity] win2022-file-01/win2022-file-01-Snapshot3.vmsn</snapshotFile>
+      </snapshot>
+    </val>
+  </propSet>
+  <propSet>
+    <name>layoutEx</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineFileLayoutEx">
+      <file>
+        <key>0</key>
+        <name>[ds-cpu-capacity] win2022-file-01/vmware.log</name>
+        <type>log</type>
+        <size>32</size>
+        <uniqueSize>32</uniqueSize>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>1</key>
+        <name>[ds-cpu-capacity] win2022-file-01/win2022-file-01-flat.vmdk</name>
+        <type>diskExtent</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>2</key>
+        <name>[ds-cpu-capacity] win2022-file-01/win2022-file-01.nvram</name>
+        <type>nvram</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>3</key>
+        <name>[ds-cpu-capacity] win2022-file-01/win2022-file-01.vmdk</name>
+        <type>diskDescriptor</type>
+        <size>214</size>
+        <uniqueSize>214</uniqueSize>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>4</key>
+        <name>[ds-cpu-capacity] win2022-file-01/win2022-file-01.vmx</name>
+        <type>config</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>5</key>
+        <name>[ds-cpu-capacity] win2022-file-01/win2022-file-01_1-flat.vmdk</name>
+        <type>diskExtent</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>6</key>
+        <name>[ds-cpu-capacity] win2022-file-01/win2022-file-01_1.vmdk</name>
+        <type>diskDescriptor</type>
+        <size>215</size>
+        <uniqueSize>215</uniqueSize>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>7</key>
+        <name>[ds-cpu-capacity] win2022-file-01/win2022-file-01-Snapshot1.vmsn</name>
+        <type>snapshotData</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>8</key>
+        <name>[ds-cpu-capacity] win2022-file-01/win2022-file-01-Snapshot2.vmsn</name>
+        <type>snapshotData</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <file>
+        <key>9</key>
+        <name>[ds-cpu-capacity] win2022-file-01/win2022-file-01-Snapshot3.vmsn</name>
+        <type>snapshotData</type>
+        <size>0</size>
+        <accessible>true</accessible>
+      </file>
+      <disk>
+        <key>203</key>
+        <chain>
+          <fileKey>1</fileKey>
+          <fileKey>3</fileKey>
+        </chain>
+      </disk>
+      <disk>
+        <key>204</key>
+        <chain>
+          <fileKey>5</fileKey>
+          <fileKey>6</fileKey>
+        </chain>
+      </disk>
+      <snapshot>
+        <key type="VirtualMachineSnapshot">snapshot-167</key>
+        <dataKey>7</dataKey>
+        <memoryKey>-1</memoryKey>
+        <disk>
+          <key>203</key>
+          <chain>
+            <fileKey>1</fileKey>
+            <fileKey>3</fileKey>
+          </chain>
+        </disk>
+        <disk>
+          <key>204</key>
+          <chain>
+            <fileKey>5</fileKey>
+            <fileKey>6</fileKey>
+          </chain>
+        </disk>
+      </snapshot>
+      <snapshot>
+        <key type="VirtualMachineSnapshot">snapshot-169</key>
+        <dataKey>8</dataKey>
+        <memoryKey>-1</memoryKey>
+        <disk>
+          <key>203</key>
+          <chain>
+            <fileKey>1</fileKey>
+            <fileKey>3</fileKey>
+          </chain>
+        </disk>
+        <disk>
+          <key>204</key>
+          <chain>
+            <fileKey>5</fileKey>
+            <fileKey>6</fileKey>
+          </chain>
+        </disk>
+      </snapshot>
+      <snapshot>
+        <key type="VirtualMachineSnapshot">snapshot-171</key>
+        <dataKey>9</dataKey>
+        <memoryKey>-1</memoryKey>
+        <disk>
+          <key>203</key>
+          <chain>
+            <fileKey>1</fileKey>
+            <fileKey>3</fileKey>
+          </chain>
+        </disk>
+        <disk>
+          <key>204</key>
+          <chain>
+            <fileKey>5</fileKey>
+            <fileKey>6</fileKey>
+          </chain>
+        </disk>
+      </snapshot>
+      <timestamp>2026-10-26T13:05:17.257714268-07:00</timestamp>
+    </val>
+  </propSet>
+  <propSet>
+    <name>storage</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineStorageInfo">
+      <perDatastoreUsage>
+        <datastore type="Datastore">datastore-83</datastore>
+        <committed>461</committed>
+        <uncommitted>2306397437491</uncommitted>
+        <unshared>429</unshared>
+      </perDatastoreUsage>
+      <timestamp>2026-10-26T13:05:17.257727506-07:00</timestamp>
+    </val>
+  </propSet>
+  <propSet>
+    <name>environmentBrowser</name>
+    <val type="EnvironmentBrowser" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">envbrowser-7</val>
+  </propSet>
+  <propSet>
+    <name>resourcePool</name>
+    <val type="ResourcePool" xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ManagedObjectReference">resgroup-47</val>
+  </propSet>
+  <propSet>
+    <name>runtime</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineRuntimeInfo">
+      <host type="HostSystem">host-18</host>
+      <connectionState>connected</connectionState>
+      <powerState>poweredOn</powerState>
+      <faultToleranceState></faultToleranceState>
+      <toolsInstallerMounted>false</toolsInstallerMounted>
+      <numMksConnections>0</numMksConnections>
+      <recordReplayState></recordReplayState>
+      <onlineStandby>false</onlineStandby>
+      <consolidationNeeded>false</consolidationNeeded>
+    </val>
+  </propSet>
+  <propSet>
+    <name>guest</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="GuestInfo">
+      <toolsStatus>toolsNotInstalled</toolsStatus>
+      <toolsRunningStatus>guestToolsNotRunning</toolsRunningStatus>
+      <toolsVersion>0</toolsVersion>
+      <guestFamily>windowsGuest</guestFamily>
+      <net>
+        <macAddress>00:0c:29:61:31:64</macAddress>
+        <connected>true</connected>
+        <deviceConfigId>205</deviceConfigId>
+      </net>
+      <guestState></guestState>
+    </val>
+  </propSet>
+  <propSet>
+    <name>summary</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineSummary">
+      <vm type="VirtualMachine">vm-165</vm>
+      <runtime>
+        <host type="HostSystem">host-18</host>
+        <connectionState>connected</connectionState>
+        <powerState>poweredOn</powerState>
+        <faultToleranceState></faultToleranceState>
+        <toolsInstallerMounted>false</toolsInstallerMounted>
+        <bootTime>2026-10-26T13:05:17.362535872-07:00</bootTime>
+        <numMksConnections>0</numMksConnections>
+        <recordReplayState></recordReplayState>
+        <onlineStandby>false</onlineStandby>
+        <consolidationNeeded>false</consolidationNeeded>
+      </runtime>
+      <guest>
+        <guestId>windows2019srvNext_64Guest</guestId>
+        <toolsStatus>toolsNotInstalled</toolsStatus>
+      </guest>
+      <config>
+        <name>win2022-file-01</name>
+        <template>false</template>
+        <vmPathName>[ds-cpu-capacity] win2022-file-01/win2022-file-01.vmx</vmPathName>
+        <memorySizeMB>16384</memorySizeMB>
+        <numCpu>2</numCpu>
+        <numEthernetCards>1</numEthernetCards>
+        <numVirtualDisks>2</numVirtualDisks>
+        <uuid>e75a7a75-e062-5e20-9f37-97a297840a1d</uuid>
+        <instanceUuid>068d00fd-2abb-5725-82ff-b63dfbd63e93</instanceUuid>
+        <guestId>windows2019srvNext_64Guest</guestId>
+        <guestFullName>windows2019srvNext_64Guest</guestFullName>
+        <hwVersion>vmx-19</hwVersion>
+      </config>
+      <storage>
+        <committed>461</committed>
+        <uncommitted>2306397437952</uncommitted>
+        <unshared>429</unshared>
+        <timestamp>2026-10-26T13:05:17.257727577-07:00</timestamp>
+      </storage>
+      <quickStats>
+        <guestHeartbeatStatus>gray</guestHeartbeatStatus>
+      </quickStats>
+      <overallStatus>green</overallStatus>
+    </val>
+  </propSet>
+  <propSet>
+    <name>datastore</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="Datastore">datastore-83</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>network</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="DistributedVirtualPortgroup">dvportgroup-96</ManagedObjectReference>
+    </val>
+  </propSet>
+  <propSet>
+    <name>snapshot</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="VirtualMachineSnapshotInfo">
+      <currentSnapshot type="VirtualMachineSnapshot">snapshot-171</currentSnapshot>
+      <rootSnapshotList>
+        <snapshot type="VirtualMachineSnapshot">snapshot-167</snapshot>
+        <vm type="VirtualMachine">vm-165</vm>
+        <name>weekly-1</name>
+        <description>weekly-1 (vcsim profile)</description>
+        <id>1</id>
+        <createTime>2026-10-26T13:05:17.050364382-07:00</createTime>
+        <state>poweredOff</state>
+        <quiesced>false</quiesced>
+        <childSnapshotList>
+          <snapshot type="VirtualMachineSnapshot">snapshot-169</snapshot>
+          <vm type="VirtualMachine">vm-165</vm>
+          <name>weekly-2</name>
+          <description>weekly-2 (vcsim profile)</description>
+          <id>2</id>
+          <createTime>2026-10-26T13:05:17.152782182-07:00</createTime>
+          <state>poweredOff</state>
+          <quiesced>false</quiesced>
+          <childSnapshotList>
+            <snapshot type="VirtualMachineSnapshot">snapshot-171</snapshot>
+            <vm type="VirtualMachine">vm-165</vm>
+            <name>weekly-3</name>
+            <description>weekly-3 (vcsim profile)</description>
+            <id>3</id>
+            <createTime>2026-10-26T13:05:17.257551465-07:00</createTime>
+            <state>poweredOff</state>
+            <quiesced>false</quiesced>
+            <replaySupported>false</replaySupported>
+          </childSnapshotList>
+          <replaySupported>false</replaySupported>
+        </childSnapshotList>
+        <replaySupported>false</replaySupported>
+      </rootSnapshotList>
+    </val>
+  </propSet>
+  <propSet>
+    <name>rootSnapshot</name>
+    <val xmlns:_XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" _XMLSchema-instance:type="ArrayOfManagedObjectReference">
+      <ManagedObjectReference type="VirtualMachineSnapshot">snapshot-167</ManagedObjectReference>
+    </val>
+  </propSet>
+</ObjectContent>
