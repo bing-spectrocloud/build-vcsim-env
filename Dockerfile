@@ -9,6 +9,7 @@ WORKDIR /app
 COPY mixed-os-gpu-lab-model /data/mixed-os-gpu-lab-model
 
 # Configure vcsim to load the inventory automatically on startup
+# NOTE: CMD skip tls for render.com, since it strips out HTTPs before hitting the pod
 ENTRYPOINT ["/vcsim"]
-CMD ["-load", "/data/mixed-os-gpu-lab-model", "-l", "0.0.0.0:8989"]
+CMD ["-tls=false", "-load", "/data/mixed-os-gpu-lab-model", "-l", "0.0.0.0:8989"]
 
